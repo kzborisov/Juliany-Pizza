@@ -1,0 +1,50 @@
+<nav>
+    <div class="nav__wrapper">
+        <a href="{% url 'index' %}" class="nav__logo">
+            <span>J</span>uliany <span>P</span>izza
+        </a>
+        <ul id="nav" class="nav__list">
+            <li class="nav__item">
+                <a href="{% url 'index' %}" class="btn--underline">Home</a>
+            </li>
+            <li class="nav__item">
+                <a href="#" class="btn--underline">Food Menu</a>
+            </li>
+            <li class="nav__item">
+                <a href="#" class="btn--underline">About</a>
+            </li>
+            <li class="nav__item">
+                <a href="#" class="btn--underline">Contacts</a>
+            </li>
+
+            {% if user.is_authenticated %}
+                <li class="nav__item">
+                    <a href="#" class="btn--underline">Order Now</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#" class="btn--underline">Profile</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#" class="btn--underline">Log Out</a>
+                </li>
+            {% else %}
+                <li class="nav__item">
+                    <a href="#" class="btn--underline">Sing In</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#" class="btn--underline">Register</a>
+                </li>
+            {% endif %}
+
+            {% if user.is_staff %}
+                <li class="nav__item">
+                    <a href="{% url 'admin:index' %}"
+                       class="btn--underline"
+                       target="_blank">
+                        Administration
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
