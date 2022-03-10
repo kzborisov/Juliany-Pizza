@@ -294,6 +294,12 @@ nav {
     padding: 0 1rem;
 }
 
+.login__error-msg {
+    font-size: 1.4rem;
+    text-align: center;
+    color: var(--tomato);
+}
+
 .login__register-link {
     font-size: 1.4rem;
     color: var(--delta);

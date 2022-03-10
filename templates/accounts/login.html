@@ -11,14 +11,23 @@
                 <p class="login__par">Sign in with your username and password</p>
             </div>
 
-            <form method="POST" action="{% url 'login' %}?next={{ next }}" class="generic-form login__form">
+            <form method="POST" action="{% url 'login' %}" class="generic-form login__form">
                 {% csrf_token %}
                 {{ form }}
+                {% if form.errors %}
+                    <p class="login__error-msg">Incorect username or password, please try again.</p>
+                {% endif %}
                 <button class="btn--fill-left">Login</button>
 
-                <p class="login__register-link">Don't have an account?
-                    <a class="btn--redirect" href="{% url 'register' %}">Register</a>
-                </p>
+                <div class="login_footer">
+                    <p class="login__register-link">Don't have an account?
+                        <a class="btn--redirect" href="{% url 'register' %}">Register</a>
+                    </p>
+                    <p class="login__register-link">Forgotten password?
+                        <a class="btn--redirect" href="#">Click here</a>
+                    </p>
+                </div>
+
             </form>
         </div>
     </section>
