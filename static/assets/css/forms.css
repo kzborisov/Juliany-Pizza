@@ -1,0 +1,12 @@
+/* =========================================== */
+/*               FORMS                         */
+/* =========================================== */
+.generic-form {
+    margin: 0 auto;
+    background: rgba(0, 0, 0, .8);
+    padding: 3rem 1rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: .5rem;
+    box-shadow: 1rem 1.5rem 2rem rgba(0, 0, 0, .6);
+}
