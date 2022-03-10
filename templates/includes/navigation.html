@@ -38,16 +38,6 @@
                 </li>
             {% endif %}
 
-            {% if user.is_staff %}
-                <li class="nav__item">
-                    <a href="{% url 'admin:index' %}"
-                       class="btn--underline"
-                       target="_blank">
-                        Administration
-                    </a>
-                </li>
-            {% endif %}
-
         </ul>
     </div>
 </nav>

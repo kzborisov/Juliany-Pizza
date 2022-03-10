@@ -41,6 +41,7 @@
     overflow: hidden;
     z-index: 1;
     cursor: pointer;
+    background: #fff;
 }
 
 .btn--fill-left:after {

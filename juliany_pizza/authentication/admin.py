@@ -11,6 +11,7 @@ class ProfileInlineAdmin(admin.StackedInline):
 class CustomUserAdmin(admin.ModelAdmin):
     inlines = (ProfileInlineAdmin,)
     list_display = ('username', 'email', 'date_joined')
+    list_filter = ('username', 'profile__first_name', 'profile__first_name', 'date_joined')
 
 
 @admin.register(Profile)
