@@ -441,7 +441,7 @@ nav {
 }
 
 .contacts__form {
-    max-width: 90%;
+    max-width: 35%;
     position: relative;
     height: 90%;
     animation: fadeIn 2s ease backwards;
