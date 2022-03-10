@@ -56,6 +56,3 @@ class ProfileView(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         return reverse_lazy('profile', kwargs={'pk': self.kwargs['pk']})
-
-    # def get_queryset(self):
-    #     return Profile.objects.filter(user__id=self.kwargs['pk'])

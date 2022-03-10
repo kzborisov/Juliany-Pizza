@@ -16,7 +16,7 @@ class ProfileDetailsForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        exclude = ('image',)
+        fields = '__all__'
 
 
 class CustomUserDetailsForm(forms.ModelForm):

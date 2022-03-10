@@ -5,8 +5,6 @@ from django.core.validators import MinLengthValidator, RegexValidator, validate_
 from django.db import models
 from django.db.models import OneToOneField
 
-from juliany_pizza.utils.validators import MaxFileSizeInMbValidator
-
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     username_validator = UnicodeUsernameValidator()
@@ -56,9 +54,6 @@ class Profile(models.Model):
     LAST_NAME_MAX_LENGTH = 30
     LAST_NAME_MIN_LENGTH = 2
 
-    IMAGE_UPLOAD_TO_DIR = 'profiles/'
-    MAX_FILE_SIZE_IN_MB = 5
-
     PHONE_NUMBER_MAX_LENGTH = 10
 
     ADDRESS_MAX_LENGTH = 1024
@@ -95,15 +90,6 @@ class Profile(models.Model):
     address = models.CharField(
         "Address",
         max_length=ADDRESS_MAX_LENGTH,
-    )
-    image = models.ImageField(
-        "Profile Image",
-        upload_to=IMAGE_UPLOAD_TO_DIR,
-        null=True,
-        blank=True,
-        validators=(
-            MaxFileSizeInMbValidator(MAX_FILE_SIZE_IN_MB),
-        ),
     )
 
     user = OneToOneField(

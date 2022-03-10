@@ -13,7 +13,6 @@ class UserRegistrationForm(UserCreationForm):
         self.fields['email'].widget.attrs.update({'placeholder': 'username@example.com'})
         self.fields['password1'].widget.attrs.update({'placeholder': 'Password'})
         self.fields['password2'].widget.attrs.update({'placeholder': 'Confirm password'})
-
         self.fields['password1'].help_text = None
         self.fields['password2'].help_text = None
 
