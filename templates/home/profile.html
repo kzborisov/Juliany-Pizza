@@ -7,8 +7,6 @@
 {% block content %}
     <section class="profile">
         <div class="profile-container">
-
-
             <form method="POST" action="{% url 'profile' user.id %}" class="generic-form profile__form"
                   enctype="multipart/form-data">
                 <div class="profile__heading-container">
@@ -19,11 +17,17 @@
                 {% csrf_token %}
                 <div class="flexed profile__profile-form">
                     {{ profile_form }}
+                    {% if profile_form.errors %}
+                        {{ profile_form.error }}
+                    {% endif %}
+                    <a href="#" class="btn--fill-left">Change Profile Image</a>
                 </div>
                 <div class="flexed profile__user-form">
                     {{ user_form }}
+                    {% if user_form.errors %}
+                        {{ user_form.error }}
+                    {% endif %}
                     <button class="btn--fill-left">Save Info</button>
-
                 </div>
             </form>
         </div>

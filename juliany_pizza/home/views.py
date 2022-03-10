@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
@@ -20,7 +21,6 @@ class ProfileView(LoginRequiredMixin, UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         profile = Profile.objects.get(pk=self.kwargs['pk'])
-        print(profile.pk, self.request.user.pk)
 
         if 'profile_form' not in context:
             context['profile_form'] = self.form_class(instance=profile)
@@ -34,7 +34,7 @@ class ProfileView(LoginRequiredMixin, UpdateView):
         self.object = self.get_object()
 
         profile = Profile.objects.get(pk=self.kwargs['pk'])
-        profile_form = self.form_class(request.POST, instance=profile)
+        profile_form = self.form_class(request.POST, request.FILES, instance=profile)
         user_form = self.second_form_class(request.POST, instance=self.request.user)
 
         if profile_form.is_valid() and user_form.is_valid():
@@ -43,13 +43,14 @@ class ProfileView(LoginRequiredMixin, UpdateView):
             profile = profile_form.save(commit=False)
             profile.user = user
             profile.save()
+            messages.success(self.request, 'User data successfully saved!')
             return HttpResponseRedirect(self.get_success_url())
 
         else:
             return self.render_to_response(
                 self.get_context_data(
-                    form=profile_form,
-                    form2=user_form,
+                    profile_form=profile_form,
+                    user_form=user_form,
                 ),
             )
 

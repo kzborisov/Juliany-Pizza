@@ -370,6 +370,7 @@ nav {
     flex-direction: row;
     position: relative;
     height: 80%;
+    animation: fadeIn 2s ease backwards;
 }
 
 .profile__form label {
@@ -392,65 +393,3 @@ nav {
     padding: 0 1rem;
 }
 
-#id_image {
-    display: none;
-}
-
-label[for="id_image"] {
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--font-color);
-    background: #fff;
-    text-align: center;
-    text-transform: uppercase;
-    margin: 2rem auto 0;
-    padding: 1rem 1.5rem;
-    border: none;
-    border-radius: 10rem;
-    transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    cursor: pointer;
-}
-
-
-label[for="id_image"]:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--almost-transparent-white);
-    border-radius: 10rem;
-    z-index: -2;
-}
-
-label[for="id_image"]:before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 100%;
-    background-color: var(--delta);
-    transition: all 0.3s;
-    border-radius: 10rem;
-    z-index: -1;
-}
-
-label[for="id_image"]:hover {
-    color: #fff;
-}
-
-label[for="id_image"]:hover:before {
-    width: 100%;
-}
-
-.image-preview {
-    margin: 0 0 1rem;
-    min-height: 250px;
-    flex: 1 0 75%;
-    background-color: #c1c1c1;
-}

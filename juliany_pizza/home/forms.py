@@ -13,12 +13,10 @@ class ProfileDetailsForm(forms.ModelForm):
         self.fields['last_name'].widget.attrs['placeholder'] = 'Enter Your Last Name'
         self.fields['phone'].widget.attrs['placeholder'] = 'Enter your phone (e.g 0899999999)'
         self.fields['address'].widget.attrs['placeholder'] = 'Enter Your Address'
-        self.fields['image'].label = 'Upload Image'
-        self.fields['image'].label_suffix = ''
 
     class Meta:
         model = Profile
-        fields = '__all__'
+        exclude = ('image',)
 
 
 class CustomUserDetailsForm(forms.ModelForm):
