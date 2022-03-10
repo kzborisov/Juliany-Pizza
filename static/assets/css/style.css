@@ -40,6 +40,13 @@ a {
     text-decoration: none;
 }
 
+.flexed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
 /* =========================================== */
 /*              NAVIGATION                     */
 /* =========================================== */
@@ -195,7 +202,6 @@ nav {
     text-transform: capitalize;
     letter-spacing: .2rem;
     width: 80%;
-    margin: 0 auto;
     font-weight: 600;
     color: var(--delta);
 }
@@ -278,7 +284,6 @@ nav {
     text-transform: capitalize;
     letter-spacing: .2rem;
     width: 80%;
-    margin: 0 auto;
     font-weight: 600;
     color: var(--delta);
 }
@@ -311,4 +316,141 @@ nav {
     font-size: 1.6rem;
     font-weight: 600;
     color: var(--gamboge);
+}
+
+
+/* =========================================== */
+/*             Profile                         */
+/* =========================================== */
+.profile {
+    background: url(../img/register-pizza.jpg) center no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.profile-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 80%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.profile__heading-container {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem;
+}
+
+.profile__heading {
+    font-size: 5.4rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+    color: var(--delta);
+}
+
+.profile__heading span {
+    font-size: 5.6rem;
+    color: var(--pepperoni);
+}
+
+.profile__form {
+    max-width: 90%;
+    flex-direction: row;
+    position: relative;
+    height: 80%;
+}
+
+.profile__form label {
+    font-size: 2rem;
+    text-transform: capitalize;
+    letter-spacing: .2rem;
+    width: 80%;
+    font-weight: 600;
+    color: var(--delta);
+}
+
+.profile__form input {
+    height: 4rem;
+    width: 80%;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    margin: .5rem auto 1rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+}
+
+#id_image {
+    display: none;
+}
+
+label[for="id_image"] {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--font-color);
+    background: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 2rem auto 0;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 10rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    cursor: pointer;
+}
+
+
+label[for="id_image"]:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--almost-transparent-white);
+    border-radius: 10rem;
+    z-index: -2;
+}
+
+label[for="id_image"]:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: var(--delta);
+    transition: all 0.3s;
+    border-radius: 10rem;
+    z-index: -1;
+}
+
+label[for="id_image"]:hover {
+    color: #fff;
+}
+
+label[for="id_image"]:hover:before {
+    width: 100%;
+}
+
+.image-preview {
+    margin: 0 0 1rem;
+    min-height: 250px;
+    flex: 1 0 75%;
+    background-color: #c1c1c1;
 }

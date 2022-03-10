@@ -1,7 +1,7 @@
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin, UserManager
 from django.contrib.auth.validators import UnicodeUsernameValidator
-from django.core.validators import MinLengthValidator, RegexValidator
+from django.core.validators import MinLengthValidator, RegexValidator, validate_email
 from django.db import models
 from django.db.models import OneToOneField
 
@@ -23,6 +23,11 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     email = models.EmailField(
         'email address',
+        unique=True,
+        validators=[validate_email],
+        error_messages={
+            'unique': "An account with that email already exists.",
+        },
     )
     is_staff = models.BooleanField(
         'staff status',

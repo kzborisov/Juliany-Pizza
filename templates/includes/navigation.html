@@ -22,8 +22,9 @@
 
 
             {% if user.is_authenticated %}
+                {{ user.pk }}
                 <li class="nav__item">
-                    <a href="#" class="btn--underline">Profile</a>
+                    <a href="{% url 'profile' user.pk %}" class="btn--underline">Profile</a>
                 </li>
                 <li class="nav__item">
                     <a href="{% url 'logout' %}" class="btn--underline">Log Out</a>
