@@ -2,10 +2,10 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, UpdateView
+from django.views.generic import TemplateView, UpdateView, FormView
 
 from juliany_pizza.authentication.models import Profile
-from juliany_pizza.home.forms import ProfileDetailsForm, CustomUserDetailsForm
+from juliany_pizza.home.forms import ProfileDetailsForm, CustomUserDetailsForm, ContactForm
 
 
 class IndexView(TemplateView):
@@ -56,3 +56,13 @@ class ProfileView(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         return reverse_lazy('profile', kwargs={'pk': self.kwargs['pk']})
+
+
+class ContactsView(LoginRequiredMixin, FormView):
+    template_name = 'home/contacts.html'
+    form_class = ContactForm
+    success_url = reverse_lazy('index')
+
+    def form_valid(self, form):
+        form.send_mail()
+        return super().form_valid(form)

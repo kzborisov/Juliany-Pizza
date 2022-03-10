@@ -1,0 +1,29 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}
+    Contacts
+{% endblock %}
+
+{% block content %}
+    <video autoplay muted loop id="bgVideo">
+        <source src="{% static 'assets/video/dough-video.mp4' %}" type="video/mp4">
+    </video>
+    <section class="contacts">
+        <div class="contacts__container">
+            <form method="POST" action="{% url 'contacts' %}" class="generic-form contacts__form">
+                <div class="contacts__heading-container">
+                    <h3 class="contacts__heading">
+                        <span>S</span>end us a <span>M</span>ail
+                    </h3>
+                </div>
+                {% csrf_token %}
+                {{ form }}
+                <button class="btn--fill-left">Send</button>
+            </form>
+            <div class="generic-form contacts__items">
+                <h4 class="contacts__heading">TODO: Add Social Links, Addres and Telephone</h4>
+            </div>
+        </div>
+    </section>
+{% endblock %}
