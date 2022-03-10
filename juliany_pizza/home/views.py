@@ -58,7 +58,7 @@ class ProfileView(LoginRequiredMixin, UpdateView):
         return reverse_lazy('profile', kwargs={'pk': self.kwargs['pk']})
 
 
-class ContactsView(LoginRequiredMixin, FormView):
+class ContactsView(FormView):
     template_name = 'home/contacts.html'
     form_class = ContactForm
     success_url = reverse_lazy('index')
