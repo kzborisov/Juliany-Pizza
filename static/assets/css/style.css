@@ -166,6 +166,24 @@ nav {
     width: 100%;
 }
 
+.btn--redirect {
+
+}
+
+/* =========================================== */
+/*               FORMS                         */
+/* =========================================== */
+.generic-form {
+    margin: 0 auto;
+    background: rgba(0, 0, 0, .8);
+    padding: 3rem 1rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: .5rem;
+    box-shadow: 1rem 1.5rem 2rem rgba(0, 0, 0, .6);
+}
+
+
 /* =========================================== */
 /*               INDEX                         */
 /* =========================================== */
@@ -243,13 +261,15 @@ nav {
     transform: translateY(-50%);
 }
 
+.register__heading-container {
+    margin-bottom: 5rem;
+}
+
 .register__heading {
     font-size: 5.4rem;
     text-align: center;
     letter-spacing: .2rem;
-    margin-bottom: 10rem;
 }
-
 
 .register__heading span {
     font-size: 5.6rem;
@@ -257,13 +277,7 @@ nav {
 }
 
 .register__form {
-    width: 75%;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    background: var(--pepperoni);
-    border-radius: 2rem;
-    padding: 3rem 1rem;
+    max-width: 75%;
 }
 
 .register__form label {
@@ -287,6 +301,19 @@ nav {
     padding: 0 1rem;
 }
 
+.register__login-link {
+    font-size: 1.4rem;
+    color: var(--delta);
+    text-align: center;
+    margin: 1rem 0 .5rem 0;
+}
+
+.register__login-link a {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--gamboge);
+}
+
 /* =========================================== */
 /*               Login                         */
 /* =========================================== */
@@ -299,20 +326,31 @@ nav {
 }
 
 .login__container {
-    width: 40%;
     position: absolute;
     top: 50%;
     left: 5%;
     transform: translateY(-50%);
+    width: 40%;
+}
+
+.login__heading-container {
+    margin-bottom: 5rem;
 }
 
 .login__heading {
     font-size: 5.4rem;
     text-align: center;
     letter-spacing: .2rem;
-    margin-bottom: 10rem;
+    text-transform: capitalize;
 }
 
+.login__par {
+    font-size: 2.2rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+    font-weight: 600;
+}
 
 .login__heading span {
     font-size: 5.6rem;
@@ -320,13 +358,7 @@ nav {
 }
 
 .login__form {
-    width: 75%;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    background: var(--pepperoni);
-    border-radius: 2rem;
-    padding: 3rem 1rem;
+    max-width: 75%;
 }
 
 .login__form label {
@@ -348,4 +380,17 @@ nav {
     margin: .5rem auto 1rem;
     border-radius: 1rem;
     padding: 0 1rem;
+}
+
+.login__register-link {
+    font-size: 1.4rem;
+    color: var(--delta);
+    text-align: center;
+    margin: 1rem 0 .5rem 0;
+}
+
+.login__register-link a {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--gamboge);
 }

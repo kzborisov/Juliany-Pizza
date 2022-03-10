@@ -5,12 +5,19 @@
 
     <section class="register">
         <div class="register__container">
-            <h3 class="register__heading"><span>B</span>ecome a <span>M</span>ember</h3>
+            <div class="register__heading-container">
+                <h3 class="register__heading">
+                    <span>B</span>ecome a <span>M</span>ember
+                </h3>
+            </div>
 
-            <form method="POST" action="{% url 'register' %}" class="register__form">
+            <form method="POST" action="{% url 'register' %}" class="generic-form register__form">
                 {% csrf_token %}
                 {{ form }}
                 <button class="btn--fill-left">Register</button>
+                <p class="register__login-link">Already have an account?
+                    <a class="btn--redirect" href="{% url 'login' %}">Log in</a>
+                </p>
             </form>
         </div>
 

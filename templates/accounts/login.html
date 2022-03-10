@@ -3,12 +3,22 @@
 {% block content %}
     <section class="login">
         <div class="login__container">
-            <h3 class="login__heading"><span>L</span>og in <span>Y</span>our <span>A</span>ccount</h3>
+            <div class="login__heading-container">
+                <h3 class="login__heading">
+                    <span>W</span>elcome <span>B</span>ack!
+                </h3>
 
-            <form method="POST" action="{% url 'login' %}?next={{ next }}" class="login__form">
+                <p class="login__par">Sign in with your username and password</p>
+            </div>
+
+            <form method="POST" action="{% url 'login' %}?next={{ next }}" class="generic-form login__form">
                 {% csrf_token %}
                 {{ form }}
                 <button class="btn--fill-left">Login</button>
+
+                <p class="login__register-link">Don't have an account?
+                    <a class="btn--redirect" href="{% url 'register' %}">Register</a>
+                </p>
             </form>
         </div>
     </section>
