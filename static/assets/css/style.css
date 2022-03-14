@@ -117,7 +117,7 @@ nav {
     height: 50%;
     position: absolute;
     top: 50%;
-    right: 1%;
+    right: 4%;
     transform: translateY(-50%);
     animation: fadeIn 4s ease backwards;
 
@@ -137,7 +137,7 @@ nav {
 
 .index__par {
     font-size: 4rem;
-    text-align: left;
+    text-align: center;
     text-transform: capitalize;
 }
 
@@ -156,6 +156,18 @@ nav {
     height: .3rem;
     background: var(--pepperoni);
 }
+
+.index__buttons-box {
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.index__buttons-box a {
+    padding: 1.5rem 1.8rem;
+}
+
 
 /* =========================================== */
 /*               REGISTER                      */
