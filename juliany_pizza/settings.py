@@ -43,6 +43,7 @@ THIRD_PARTY_APPS = ()
 PROJECT_APPS = (
     'juliany_pizza.home',
     'juliany_pizza.authentication',
+    'juliany_pizza.menu',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
