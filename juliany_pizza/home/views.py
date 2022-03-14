@@ -66,3 +66,7 @@ class ContactsView(FormView):
     def form_valid(self, form):
         form.send_mail()
         return super().form_valid(form)
+
+
+class AboutView(TemplateView):
+    template_name = 'home/about.html'
