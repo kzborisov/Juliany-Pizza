@@ -11,6 +11,10 @@ class Category(models.Model):
         validators=[
             MinLengthValidator(CATEGORY_NAME_MIN_LENGTH),
         ],
+        unique=True,
+        error_messages={
+            'unique': "That category already exists.",
+        },
     )
 
     class Meta:
@@ -30,6 +34,10 @@ class Ingredient(models.Model):
         validators=[
             MinLengthValidator(INGREDIENT_NAME_MIN_LENGTH),
         ],
+        unique=True,
+        error_messages={
+            'unique': "That ingredient already exists.",
+        },
     )
 
     class Meta:
@@ -38,6 +46,44 @@ class Ingredient(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Size(models.Model):
+    NAME_MAX_LENGTH = 255
+    NAME_MIN_LENGTH = 3
+
+    SIZE_SMALL = 'L'
+    SIZE_LARGE = "XL"
+    SIZE_FAMILY = 'FAMILY'
+    SIZE_DEFAULT = 'DEFAULT'
+
+    SIZE_CHOICES = (
+        SIZE_DEFAULT,
+        SIZE_SMALL,
+        SIZE_LARGE,
+        SIZE_FAMILY,
+    )
+
+    PRICE_MAX_DIGITS = 12
+    PRICE_DECIMAL_PLACES = 2
+
+    size = models.CharField(
+        max_length=max(len(c) for c in SIZE_CHOICES),
+        choices=((c, c) for c in SIZE_CHOICES),
+    )
+    price = models.DecimalField(
+        max_digits=PRICE_MAX_DIGITS,
+        decimal_places=PRICE_DECIMAL_PLACES,
+    )
+    name = models.CharField(
+        max_length=NAME_MAX_LENGTH,
+        validators=[
+            MinLengthValidator(NAME_MIN_LENGTH),
+        ],
+    )
+
+    def __str__(self):
+        return f"{self.name} - {self.size} - {self.price:.2f}"
 
 
 class MenuItem(models.Model):
@@ -55,10 +101,9 @@ class MenuItem(models.Model):
             MinLengthValidator(NAME_MIN_LENGTH),
         ],
     )
-    description = models.TextField()
-    price = models.DecimalField(
-        max_digits=PRICE_MAX_DIGITS,
-        decimal_places=PRICE_DECIMAL_PLACES,
+    description = models.TextField(
+        blank=True,
+        null=True,
     )
     active = models.BooleanField(
         default=ACTIVE_DEFAULT_VALUE,
@@ -67,6 +112,9 @@ class MenuItem(models.Model):
     category = models.ForeignKey(
         Category,
         on_delete=models.CASCADE,
+    )
+    size = models.ManyToManyField(
+        Size,
     )
     ingredients = models.ManyToManyField(
         Ingredient,
