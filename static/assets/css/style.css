@@ -721,3 +721,167 @@ nav {
 /*    color: var(--delta);*/
 /*    text-align: center;*/
 /*}*/
+
+/* =========================================== */
+/*         Password Reset                      */
+/* =========================================== */
+.password-reset,
+.password-sent,
+.password-reset-done {
+    background: url(../img/register-pizza.jpg) center no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.password-reset__container {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    width: 40%;
+}
+
+.password-reset__heading-container {
+    margin-bottom: 5rem;
+    animation: fadeIn 2s ease forwards;
+}
+
+.password-reset__heading {
+    font-size: 5.4rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+}
+
+.password-reset__par {
+    font-size: 2.2rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.password-reset__heading span {
+    font-size: 5.6rem;
+    color: var(--pepperoni);
+}
+
+.password-reset__form {
+    max-width: 75%;
+    animation: moveInBottom 1.4s ease forwards;
+}
+
+.password-reset__form label {
+    font-size: 2rem;
+    text-transform: capitalize;
+    letter-spacing: .2rem;
+    width: 80%;
+    font-weight: 600;
+    color: var(--delta);
+}
+
+.password-reset__form input {
+    height: 4rem;
+    width: 80%;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    margin: .5rem auto 1rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+}
+
+.password-reset__error-msg {
+    font-size: 1.4rem;
+    text-align: center;
+    color: var(--tomato);
+}
+
+/* =========================================== */
+/*         Password Reset Confirm              */
+/* =========================================== */
+.reset-password-confirm {
+    background: url(../img/register-pizza.jpg) center no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.reset-password-confirm__container {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    width: 40%;
+}
+
+.reset-password-confirm__heading-container {
+    margin-bottom: 5rem;
+    animation: fadeIn 2s ease forwards;
+}
+
+.reset-password-confirm__heading {
+    font-size: 5.4rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+}
+
+.reset-password-confirm__par {
+    font-size: 2.2rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.reset-password-confirm__heading span {
+    font-size: 5.6rem;
+    color: var(--pepperoni);
+}
+
+.reset-password-confirm__form {
+    max-width: 75%;
+    animation: moveInBottom 1.4s ease forwards;
+}
+
+.reset-password-confirm__form label {
+    font-size: 2rem;
+    text-transform: capitalize;
+    letter-spacing: .2rem;
+    width: 80%;
+    font-weight: 600;
+    color: var(--delta);
+}
+
+.reset-password-confirm__form input {
+    height: 4rem;
+    width: 80%;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    margin: .5rem auto 1rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+}
+
+.reset-password-confirm__error-msg {
+    font-size: 1.4rem;
+    text-align: center;
+    color: var(--tomato);
+}
+
+.reset-password-confirm-heading--invalid {
+    font-size: 2rem;
+    text-align: center;
+    color: var(--tomato);
+}
+
+.reset-password-confirm-par--invalid {
+    font-size: 1.4rem;
+    text-align: center;
+    color: var(--tomato);
+}

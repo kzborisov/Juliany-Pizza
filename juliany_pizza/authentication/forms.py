@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, SetPasswordForm, PasswordResetForm
+from django.core.exceptions import ValidationError
 
 from juliany_pizza.authentication.models import CustomUser, Profile
 
@@ -27,3 +28,18 @@ class UserRegistrationForm(UserCreationForm):
             profile.save()
 
         return user
+
+
+class UserPasswordResetForm(PasswordResetForm):
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if not UserModel.objects.filter(email__iexact=email, is_active=True).exists():
+            raise ValidationError("Invalid Email! Inactive or Nonexistent User")
+        return email
+
+
+class UserSetPasswordForm(SetPasswordForm):
+    def __init__(self, user, *args, **kwargs):
+        super().__init__(user, *args, **kwargs)
+        self.fields['new_password1'].help_text = None
+        self.fields['new_password2'].help_text = None

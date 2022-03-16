@@ -1,9 +1,10 @@
 from django.contrib.auth import login
-from django.contrib.auth.views import LogoutView, LoginView
+from django.contrib.auth.views import LogoutView, LoginView, PasswordResetView, PasswordResetDoneView, \
+    PasswordResetConfirmView, PasswordResetCompleteView
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
-from juliany_pizza.authentication.forms import UserRegistrationForm
+from juliany_pizza.authentication.forms import UserRegistrationForm, UserSetPasswordForm, UserPasswordResetForm
 
 
 class UserRegistrationView(CreateView):
@@ -29,3 +30,24 @@ class UserLoginView(LoginView):
 
 class UserLogoutView(LogoutView):
     pass
+
+
+class UserPasswordResetView(PasswordResetView):
+    form_class = UserPasswordResetForm
+    template_name = "accounts/password_reset.html"
+    success_url = reverse_lazy('password reset done')
+
+
+class UserPasswordResetDoneView(PasswordResetDoneView):
+    template_name = "accounts/password_reset_sent.html"
+    success_url = reverse_lazy('password reset confirm')
+
+
+class UserPasswordResetConfirmView(PasswordResetConfirmView):
+    form_class = UserSetPasswordForm
+    template_name = "accounts/reset_password_confirm.html"
+    success_url = reverse_lazy('password reset complete')
+
+
+class UserPasswordResetCompleteView(PasswordResetCompleteView):
+    template_name = "accounts/reset_password_complete.html"
