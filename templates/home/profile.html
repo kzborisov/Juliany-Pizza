@@ -27,6 +27,7 @@
                         {{ user_form.error }}
                     {% endif %}
                     <button class="btn--fill-left">Save Info</button>
+                    <a href="{% url 'change password' %}" class="btn--fill-left">Change Password</a>
                     {% if user.is_staff %}
                         <a href="{% url 'admin:index' %}"
                            class="btn--fill-left"

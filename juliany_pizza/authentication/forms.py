@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UserCreationForm, SetPasswordForm, PasswordResetForm
+from django.contrib.auth.forms import UserCreationForm, SetPasswordForm, PasswordResetForm, PasswordChangeForm
 from django.core.exceptions import ValidationError
 
 from juliany_pizza.authentication.models import CustomUser, Profile
@@ -43,3 +43,22 @@ class UserSetPasswordForm(SetPasswordForm):
         super().__init__(user, *args, **kwargs)
         self.fields['new_password1'].help_text = None
         self.fields['new_password2'].help_text = None
+        self.fields['new_password2'].label = "Confirm New password"
+        self.fields['new_password1'].widget.attrs.update({'placeholder': 'Enter your new password'})
+        self.fields['new_password2'].widget.attrs.update({'placeholder': 'Confirm your new password'})
+
+
+class UserPasswordChangeForm(PasswordChangeForm):
+    error_messages = {
+        'password_incorrect': 'Invalid password! Please try again.'
+    }
+
+    def __init__(self, user, *args, **kwargs):
+        super().__init__(user, *args, **kwargs)
+        self.fields['old_password'].help_text = None
+        self.fields['new_password1'].help_text = None
+        self.fields['new_password2'].help_text = None
+        self.fields['new_password2'].label = "Confirm New password"
+        self.fields['old_password'].widget.attrs.update({'placeholder': 'Enter your current password'})
+        self.fields['new_password1'].widget.attrs.update({'placeholder': 'Enter your new password'})
+        self.fields['new_password2'].widget.attrs.update({'placeholder': 'Confirm your new password'})

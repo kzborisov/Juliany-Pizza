@@ -1,10 +1,11 @@
 from django.contrib.auth import login
 from django.contrib.auth.views import LogoutView, LoginView, PasswordResetView, PasswordResetDoneView, \
-    PasswordResetConfirmView, PasswordResetCompleteView
+    PasswordResetConfirmView, PasswordResetCompleteView, PasswordChangeView
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
-from juliany_pizza.authentication.forms import UserRegistrationForm, UserSetPasswordForm, UserPasswordResetForm
+from juliany_pizza.authentication.forms import UserRegistrationForm, UserSetPasswordForm, UserPasswordResetForm, \
+    UserPasswordChangeForm
 
 
 class UserRegistrationView(CreateView):
@@ -30,6 +31,12 @@ class UserLoginView(LoginView):
 
 class UserLogoutView(LogoutView):
     pass
+
+
+class UserPasswordChangeView(PasswordChangeView):
+    form_class = UserPasswordChangeForm
+    template_name = 'accounts/change_password.html'
+    success_url = reverse_lazy('index')
 
 
 class UserPasswordResetView(PasswordResetView):
