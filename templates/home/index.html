@@ -7,12 +7,10 @@
             <h1 class="index__title"><span>J</span>uliany <span>P</span>izza</h1>
             <p class="index__par">Making <span>people</span> happy</p>
             <div class="index__buttons-box">
-                {% if user.is_authenticated %}
-                    <a href="#" class="btn--fill-left">Menu</a>
-                {% else %}
+                {% if not user.is_authenticated %}
                     <a href="{% url 'login' %}" class="btn--fill-left">Log In</a>
                 {% endif %}
-                <a href="#" class="btn--fill-left">Order</a>
+                <a href="{% url 'menu' %}" class="btn--fill-left">Our Menu</a>
             </div>
         </div>
     </section>

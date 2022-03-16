@@ -1,0 +1,43 @@
+{% extends "base/base.html" %}
+
+{% block title %}
+    Food Menu
+{% endblock %}
+
+{% block content %}
+    <section class="menu">
+        <div class="menu__container">
+            <div class="menu__heading-container">
+                <h3 class="menu__heading">
+                    <span>O</span>ur <span>M</span>enu!
+                </h3>
+            </div>
+            <div class="menu__items">
+                {% for category in categories %}
+                    <h4 class="menu__category_name">{{ category.name }}</h4>
+                    <table class="menu__table">
+                        {% for item in menu_items %}
+                            {% if item.category == category %}
+                                <tr>
+                                    <td class="menu__item">
+                                        <p class="menu__item-name">{{ item.name }}</p>
+                                        <span class="menu__ingredients">{{ item.ingredients.all|join:', ' }}</span>
+                                    </td>
+                                    <td class="menu__price-container">
+                                        {% for item_size in item.size.all %}
+                                            <span class="menu__price">{{ item_size.price }}lv.</span>
+                                        {% endfor %}
+                                    </td>
+                                </tr>
+                            {% endif %}
+
+                        {% endfor %}
+                    </table>
+                {% empty %}
+                    <h4 class="menu__category_name">Nothing to show yet.</h4>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
