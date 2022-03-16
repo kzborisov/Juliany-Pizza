@@ -11,7 +11,7 @@
                 <p class="login__par">Sign in with your username and password</p>
             </div>
 
-            <form method="POST" action="{% url 'login' %}" class="generic-form login__form">
+            <form method="POST" action="{% url 'login' %}?next={{ next }}" class="generic-form login__form">
                 {% csrf_token %}
                 {{ form }}
                 {% if form.errors %}
