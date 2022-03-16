@@ -702,6 +702,12 @@ nav {
 
 }
 
+.menu__price-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
 .menu__price {
     font-size: 2rem;
     color: var(--delta);
@@ -716,11 +722,31 @@ nav {
     text-transform: capitalize;
 }
 
-/*.menu__par {*/
-/*    font-size: 1.6rem;*/
-/*    color: var(--delta);*/
-/*    text-align: center;*/
-/*}*/
+.menu__add-to-cart-container {
+    width: 3rem;
+    height: 3rem;
+    display: inline-block;
+    border-radius: 50%;
+    background: #fff;
+    position: relative;
+}
+
+.menu__add-to-cart-options select {
+    width: 6rem;
+    height: 3rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0 1.3rem;
+    border: none;
+    outline: none;
+    border-radius: 2rem;
+    text-align: center;
+    background: #fff;
+}
+
+.menu__add-to-cart-options select option {
+    font-size: 1.8rem;
+}
 
 /* =========================================== */
 /*         Password Reset                      */

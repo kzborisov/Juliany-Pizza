@@ -27,6 +27,19 @@
                                         {% for item_size in item.size.all %}
                                             <span class="menu__price">{{ item_size.price }}lv.</span>
                                         {% endfor %}
+                                        <div class="menu__add-to-cart-options">
+                                            {% if item.size.all.count|add:0 > 1 %}
+                                                <select name="cars" id="cars">
+                                                    {% for item_size in item.size.all %}
+                                                        <option value="{{ item_size.size }}">{{ item_size.size }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            {% endif %}
+                                        </div>
+                                        <div class="menu__add-to-cart-container">
+                                            <a href="#" class="btn__add-to-cart">+</a>
+                                        </div>
+
                                     </td>
                                 </tr>
                             {% endif %}
