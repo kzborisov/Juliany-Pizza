@@ -28,18 +28,21 @@
                                             <span class="menu__price">{{ item_size.price }}lv.</span>
                                         {% endfor %}
                                         <div class="menu__add-to-cart-options">
-                                            {% if item.size.all.count|add:0 > 1 %}
-                                                <select name="cars" id="cars">
-                                                    {% for item_size in item.size.all %}
-                                                        <option value="{{ item_size.size }}">{{ item_size.size }}</option>
-                                                    {% endfor %}
-                                                </select>
-                                            {% endif %}
+                                            <select name="size" id="size-{{ item.id }}">
+                                                {% for item_size in item.size.all %}
+                                                    <option value="{{ item_size.size }}">
+                                                        {{ item_size.size }}</option>
+                                                {% endfor %}
+                                            </select>
                                         </div>
-                                        <div class="menu__add-to-cart-container">
-                                            <a href="#" class="btn__add-to-cart">+</a>
-                                        </div>
-
+                                        <button
+                                                type="button"
+                                                id="update-button"
+                                                data-index="{{ item.id }}"
+                                                value="{{ item.id }}"
+                                                class="btn--fill-left btn__add-to-cart">
+                                            +
+                                        </button>
                                     </td>
                                 </tr>
                             {% endif %}
@@ -53,4 +56,43 @@
         </div>
     </section>
 
+    <script>
+        $(document).on('click', '.btn__add-to-cart', function (e) {
+            e.preventDefault();
+            var id = $(this).data('index')
+            console.log()
+            $.ajax({
+                type: 'POST',
+                url: '{% url "cart add" %}',
+                data: {
+                    itemId: $(this).data('index'),
+                    itemSize: $("#size-" + id).val(),
+                    csrfmiddlewaretoken: "{{csrf_token}}",
+                    action: 'post'
+                },
+                success: function (json) {
+                    document.getElementById("cart-items").innerHTML = json.qty
+                    let btn = document.getElementById('btn-order');
+                    btn.classList.add('items-added');
+                    {#document.getElementById("subtotal").innerHTML = json.subtotal#}
+                },
+                error: function (xhr, errmsg, err) {
+                }
+            });
+        })
+
+
+        {#     THIS IS WORKING -- DO NOT REMOVE #}
+        {#jQuery(document).on('click', ".btn__add-to-cart", function () {#}
+        {#    var $this = $(this);#}
+        {#    let value = $this.val();#}
+        {#    var id = $this.attr('id').split('-')[1];#}
+        {#    var option = $("#size-" + id);#}
+        {#    if (option.val()) {#}
+        {#        console.log(value + " size: " + option.val());#}
+        {#    } else {#}
+        {#        console.log(value);#}
+        {#    }#}
+        {# });#}
+    </script>
 {% endblock %}

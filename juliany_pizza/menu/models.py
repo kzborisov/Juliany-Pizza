@@ -54,14 +54,12 @@ class Size(models.Model):
 
     SIZE_SMALL = 'L'
     SIZE_LARGE = "XL"
-    SIZE_FAMILY = 'FAMILY'
-    SIZE_DEFAULT = 'DEFAULT'
+    SIZE_DEFAULT = '---'
 
     SIZE_CHOICES = (
         SIZE_DEFAULT,
         SIZE_SMALL,
         SIZE_LARGE,
-        SIZE_FAMILY,
     )
 
     PRICE_MAX_DIGITS = 12

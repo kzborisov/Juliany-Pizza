@@ -11,15 +11,11 @@
                 <a href="{% url 'menu' %}" class="btn--underline">Our Menu</a>
             </li>
             <li class="nav__item">
-                <a href="#" class="btn--underline">Order Now</a>
-            </li>
-            <li class="nav__item">
                 <a href="{% url 'about' %}" class="btn--underline">About</a>
             </li>
             <li class="nav__item">
                 <a href="{% url 'contacts' %}" class="btn--underline">Contacts</a>
             </li>
-
 
             {% if user.is_authenticated %}
                 {{ user.pk }}
@@ -38,6 +34,19 @@
                 </li>
             {% endif %}
 
+            <li class="nav__item">
+                <a id="btn-order" href="{% url 'cart summary' %}" class="btn--underline">
+                    Order
+                    {% with total_qty=cart|length %}
+                        <span id="cart-items">
+                            {% if total_qty > 0 %}
+                                {{ total_qty }}
+                            {% else %}
+                            {% endif %}
+                        </span>
+                    {% endwith %}
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

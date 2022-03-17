@@ -44,6 +44,7 @@ PROJECT_APPS = (
     'juliany_pizza.home',
     'juliany_pizza.authentication',
     'juliany_pizza.menu',
+    'juliany_pizza.cart',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
@@ -72,6 +73,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'juliany_pizza.cart.context_processors.cart',
             ],
         },
     },
