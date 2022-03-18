@@ -48,7 +48,45 @@ class Ingredient(models.Model):
         return self.name
 
 
-class Size(models.Model):
+class Product(models.Model):
+    NAME_MAX_LENGTH = 255
+    NAME_MIN_LENGTH = 3
+
+    PRICE_MAX_DIGITS = 12
+    PRICE_DECIMAL_PLACES = 2
+
+    ACTIVE_DEFAULT_VALUE = True
+
+    name = models.CharField(
+        max_length=NAME_MAX_LENGTH,
+        validators=[
+            MinLengthValidator(NAME_MIN_LENGTH),
+        ],
+    )
+    description = models.TextField(
+        blank=True,
+        null=True,
+    )
+    active = models.BooleanField(
+        default=ACTIVE_DEFAULT_VALUE,
+    )
+    category = models.ForeignKey(
+        Category,
+        on_delete=models.CASCADE,
+    )
+    ingredients = models.ManyToManyField(
+        Ingredient,
+    )
+
+    class Meta:
+        verbose_name_plural = 'Products'
+        verbose_name = 'Product'
+
+    def __str__(self):
+        return self.name
+
+
+class Stock(models.Model):
     NAME_MAX_LENGTH = 255
     NAME_MIN_LENGTH = 3
 
@@ -73,54 +111,12 @@ class Size(models.Model):
         max_digits=PRICE_MAX_DIGITS,
         decimal_places=PRICE_DECIMAL_PLACES,
     )
-    name = models.CharField(
-        max_length=NAME_MAX_LENGTH,
-        validators=[
-            MinLengthValidator(NAME_MIN_LENGTH),
-        ],
-    )
-
-    def __str__(self):
-        return f"{self.name} - {self.size} - {self.price:.2f}"
-
-
-class MenuItem(models.Model):
-    NAME_MAX_LENGTH = 255
-    NAME_MIN_LENGTH = 3
-
-    PRICE_MAX_DIGITS = 12
-    PRICE_DECIMAL_PLACES = 2
-
-    ACTIVE_DEFAULT_VALUE = True
-
-    name = models.CharField(
-        max_length=NAME_MAX_LENGTH,
-        validators=[
-            MinLengthValidator(NAME_MIN_LENGTH),
-        ],
-    )
-    description = models.TextField(
-        blank=True,
-        null=True,
-    )
-    active = models.BooleanField(
-        default=ACTIVE_DEFAULT_VALUE,
-    )
-
-    category = models.ForeignKey(
-        Category,
+    product = models.ForeignKey(
+        Product,
         on_delete=models.CASCADE,
+        verbose_name='product',
+        related_name='stock',
     )
-    size = models.ManyToManyField(
-        Size,
-    )
-    ingredients = models.ManyToManyField(
-        Ingredient,
-    )
-
-    class Meta:
-        verbose_name_plural = 'Menu Items'
-        verbose_name = 'Menu Items'
 
     def __str__(self):
-        return self.name
+        return f"{self.size} - {self.price:.2f} - {self.product.name}"

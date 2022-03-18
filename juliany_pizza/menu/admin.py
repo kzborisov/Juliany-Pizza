@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from juliany_pizza.menu.models import Category, Ingredient, MenuItem, Size
+from juliany_pizza.menu.models import Category, Ingredient, Product, Stock
 
 
 @admin.register(Category)
@@ -15,13 +15,12 @@ class IngredientAdmin(admin.ModelAdmin):
     list_display = ('id', 'name',)
 
 
-@admin.register(Size)
-class CategoryAdmin(admin.ModelAdmin):
-    list_filter = ('size', 'price')
-    list_display = ('name', 'size', 'price')
-
-
-@admin.register(MenuItem)
-class MenuItemAdmin(admin.ModelAdmin):
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
     list_display = ('category', 'name', 'description', 'active')
     list_filter = ('category', 'name', 'active')
+
+
+@admin.register(Stock)
+class StockAdmin(admin.ModelAdmin):
+    list_display = ('size', 'price', 'product')
