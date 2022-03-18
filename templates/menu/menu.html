@@ -9,6 +9,7 @@
         <div class="menu__container">
             <div class="menu__heading-container">
                 <h3 class="menu__heading">
+                    {#                    {{ size }}#}
                     <span>O</span>ur <span>M</span>enu!
                 </h3>
             </div>
@@ -16,25 +17,20 @@
                 {% for category in categories %}
                     <h4 class="menu__category_name">{{ category.name }}</h4>
                     <table class="menu__table">
-                        {% for item in menu_items %}
-                            {% if item.category == category %}
+                        {% for item in stock %}
+                            {% if item.product.category == category %}
                                 <tr>
                                     <td class="menu__item">
-                                        <p class="menu__item-name">{{ item.name }}</p>
-                                        <span class="menu__ingredients">{{ item.ingredients.all|join:', ' }}</span>
+                                        <p class="menu__item-name">{{ item.product.name }}
+                                            {% if not item.size == "---" %}
+                                                {{ item.size }}
+                                            {% else %}
+
+                                            {% endif %}</p>
+                                        <span class="menu__ingredients">{{ item.product.ingredients.all|join:', ' }}</span>
                                     </td>
                                     <td class="menu__price-container">
-                                        {% for item_size in item.size.all %}
-                                            <span class="menu__price">{{ item_size.price }}lv.</span>
-                                        {% endfor %}
-                                        <div class="menu__add-to-cart-options">
-                                            <select name="size" id="size-{{ item.id }}">
-                                                {% for item_size in item.size.all %}
-                                                    <option value="{{ item_size.size }}">
-                                                        {{ item_size.size }}</option>
-                                                {% endfor %}
-                                            </select>
-                                        </div>
+                                        <span class="menu__price">{{ item.price }}lv.</span>
                                         <button
                                                 type="button"
                                                 id="update-button"
@@ -59,14 +55,11 @@
     <script>
         $(document).on('click', '.btn__add-to-cart', function (e) {
             e.preventDefault();
-            var id = $(this).data('index')
-            console.log()
             $.ajax({
                 type: 'POST',
                 url: '{% url "cart add" %}',
                 data: {
                     itemId: $(this).data('index'),
-                    itemSize: $("#size-" + id).val(),
                     csrfmiddlewaretoken: "{{csrf_token}}",
                     action: 'post'
                 },
@@ -74,6 +67,7 @@
                     document.getElementById("cart-items").innerHTML = json.qty
                     let btn = document.getElementById('btn-order');
                     btn.classList.add('items-added');
+                    console.log(json)
                     {#document.getElementById("subtotal").innerHTML = json.subtotal#}
                 },
                 error: function (xhr, errmsg, err) {
