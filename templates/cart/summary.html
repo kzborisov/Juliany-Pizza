@@ -82,58 +82,6 @@
                     </div>
                 {% endif %}
             </div>
-
-
-            {#            <div class="cart-summary__items">#}
-            {#                {% if cart %}#}
-            {#                    {% for item in cart %}#}
-            {#                        {% with product=item.product %}#}
-            {#                            <div data-index="{{ item.id }}" class="cart_summary__menu-item"#}
-            {#                                 style="font-size: 1.4rem; color: #fff;">#}
-            {#                                {{ item.id }}#}
-            {#                                Name: {{ product }}#}
-            {#                                {% if item.size %}#}
-            {#                                    Size: {{ item.size }}#}
-            {#                                {% endif %}#}
-            {#                                Qty: {{ item.qty }}#}
-            {##}
-            {#                                <select id="select{{ item.id }}">#}
-            {#                                    <option selected>#}
-            {#                                        {{ item.qty }}#}
-            {#                                    </option>#}
-            {#                                    <option value="">1</option>#}
-            {#                                    <option value="">2</option>#}
-            {#                                    <option value="">3</option>#}
-            {#                                    <option value="">4</option>#}
-            {#                                </select>#}
-            {#                                <button type="button" id="update-button" data-index="{{ item.id }}"#}
-            {#                                        class="update-button">#}
-            {#                                    Update#}
-            {#                                </button>#}
-            {#                                <button type="button" id="delete-button" data-index="{{ item.id }}"#}
-            {#                                        class="delete-button">#}
-            {#                                    Delete#}
-            {#                                </button>#}
-            {#                            </div>#}
-            {##}
-            {##}
-            {#                        {% endwith %}#}
-            {#                    {% endfor %}#}
-            {#                    <h5 id="subtotal_heading" class="subtotal" style="font-size: 1.4rem; color: #fff;">#}
-            {#                        Subtotal: <span id="subtotal">{{ cart.subtotal_price|floatformat:2 }}</span>lv</h5>#}
-            {#                    {% if cart.subtotal_price < 10 %}#}
-            {#                        <h5 id="delivery-fee" style="font-size: 1.4rem; color: #fff;">#}
-            {#                            Delivery: {{ 2|floatformat:2 }}lv</h5>#}
-            {#                    {% endif %}#}
-            {#                    <hr>#}
-            {#                    <h5 style="font-size: 1.4rem; color: #fff;">Final Price: <span#}
-            {#                            id="final-price">{{ cart.total_price|floatformat:2 }}</span>lv</h5>#}
-            {##}
-            {#                {% else %}#}
-            {#                    <h5 id="empty-cart">Your cart is empty... Choose from our <a href="{% url 'menu' %}">menu</a></h5>#}
-            {#                {% endif %}#}
-            {##}
-            {#            </div>#}
         </div>
     </section>
 
