@@ -67,7 +67,6 @@
                     document.getElementById("cart-items").innerHTML = json.qty
                     let btn = document.getElementById('btn-order');
                     btn.classList.add('items-added');
-                    console.log(json)
                     {#document.getElementById("subtotal").innerHTML = json.subtotal#}
                 },
                 error: function (xhr, errmsg, err) {
@@ -76,17 +75,5 @@
         })
 
 
-        {#     THIS IS WORKING -- DO NOT REMOVE #}
-        {#jQuery(document).on('click', ".btn__add-to-cart", function () {#}
-        {#    var $this = $(this);#}
-        {#    let value = $this.val();#}
-        {#    var id = $this.attr('id').split('-')[1];#}
-        {#    var option = $("#size-" + id);#}
-        {#    if (option.val()) {#}
-        {#        console.log(value + " size: " + option.val());#}
-        {#    } else {#}
-        {#        console.log(value);#}
-        {#    }#}
-        {# });#}
     </script>
 {% endblock %}

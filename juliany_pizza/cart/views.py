@@ -23,10 +23,51 @@ class AddToCartView(View):
             item_id = int(request.POST.get('itemId'))
             item = get_object_or_404(Stock, id=item_id)
             cart.add(item=item)
+            subtotal_price = f'{cart.subtotal_price:.2f}'
             response = JsonResponse(
                 {
-                    'data': cart.cart,
+                    'subtotal': subtotal_price,
                     'qty': len(cart),
+                }
+            )
+            return response
+
+
+class UpdateCartView(View):
+    def post(self, request):
+        cart = Cart(request)
+        if request.POST.get('action') == 'post':
+            item_id = request.POST.get('itemId')
+            item_qty = int(request.POST.get('itemQty'))
+            cart.update(item_id=item_id, item_qty=item_qty)
+            item = cart.cart[item_id]
+            subtotal_price = f'{cart.subtotal_price:.2f}'
+            item_total_price = f'{cart.item_total_price(item):.2f}'
+            final_price = f'{cart.total_price:.2f}'
+            response = JsonResponse(
+                {
+                    'qty': len(cart),
+                    'item_total_price': item_total_price,
+                    'subtotal': subtotal_price,
+                    'final_price': final_price,
+                }
+            )
+            return response
+
+
+class DeleteCartItemView(View):
+    def post(self, request):
+        cart = Cart(request)
+        if request.POST.get('action') == 'post':
+            item_id = request.POST.get('itemId')
+            cart.delete(item_id=item_id)
+            subtotal_price = f'{cart.subtotal_price:.2f}'
+            final_price = f'{cart.total_price:.2f}'
+            response = JsonResponse(
+                {
+                    'subtotal': subtotal_price,
+                    'qty': len(cart),
+                    'final_price': final_price,
                 }
             )
             return response

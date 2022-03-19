@@ -18,7 +18,6 @@
             </li>
 
             {% if user.is_authenticated %}
-                {{ user.pk }}
                 <li class="nav__item">
                     <a href="{% url 'profile' user.pk %}" class="btn--underline">Profile</a>
                 </li>
