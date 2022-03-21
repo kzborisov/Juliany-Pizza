@@ -13,9 +13,7 @@
                 </h3>
             </div>
             <div class="cart-summary__items empty-cart">
-
                 <table class="cart-summary__table">
-
                     {% for item in cart %}
                         {% with product=item.product %}
                             <tr data-index="{{ item.id }}" class="cart_summary__table_row">
@@ -55,21 +53,18 @@
                                     </button>
                                 </td>
                             </tr>
-
                         {% endwith %}
                     {% empty %}
                         <tr class="cart_summary__table_row">
                             <h5 class="cart-summary__empty-table-heading">Your cart is empty</h5>
                             <a href="{% url 'menu' %}" class="btn--fill-left">Menu</a>
                         </tr>
-
                     {% endfor %}
                 </table>
                 {% if cart %}
                     <div class="cart-summary__final-price">
                         {# TODO: Replace with the restaurant app delivery fee #}
                         <p class="final-price-par">Delivery fees: 2lv</p>
-
                         <h5 class="final-price">
                             Final Price
                             <span id="final-price">
@@ -77,7 +72,6 @@
                         </span>
                         </h5>
                     </div>
-
                     <div class="cart-summary__order_btn">
                         <a href="#" class="btn--fill-left">Order Now!</a>
                     </div>
