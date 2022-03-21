@@ -9,20 +9,18 @@ UserModel = get_user_model()
 
 class TestCartViews(TestCase):
     def setUp(self):
-        user = UserModel.objects.create(username='admin')
+        UserModel.objects.create(username='admin')
         category = Category.objects.create(name='django')
-        ingredients = Ingredient.objects.create(name='test-ingredient')
+        Ingredient.objects.create(name='test-ingredient')
         product = Product.objects.create(
             name='test-product',
             active=True,
             category=category,
-            # ingredients_id=ingredients.id,
         )
         product_2 = Product.objects.create(
             name='test-product-2',
             active=True,
             category=category,
-            # ingredients_id=ingredients.id,
         )
         Stock.objects.create(
             size='L',
