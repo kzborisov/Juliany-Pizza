@@ -39,7 +39,10 @@ jobs:
           path: coverage.xml
           retention-days: 1
       - name: Generate test report badges
+        uses: actions/download-artifact@master
+        with:
+          name: flake8stats.txt
+          path: flake8stats.txt
         run:
           pip install genbadge
           genbadge flake8 -i flake8stats.txt
-          genbadge coverage -i coverage.xml
