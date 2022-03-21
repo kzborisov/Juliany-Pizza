@@ -53,7 +53,7 @@ jobs:
           name: code-coverage-report
       - name: Test artifact downloading
         run: ls -R
-      - name: Generate
+#      - name: Generate
 #      - run:
 #          pip install genbadge
 #          genbadge flake8 -i flake8stats.txt
