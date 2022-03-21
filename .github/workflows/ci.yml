@@ -19,12 +19,12 @@ jobs:
       - name: Lint with flake8
         run: |
           pip install flake8
-          flake8
-      - name: Archive code coverage results
+          flake8 --output-file flake8stats.txt
+      - name: Archive flake8 results
         uses: actions/upload-artifact@v3
         with:
           name: code-coverage-report
-          path: output/test/code-coverage.html
+          path: flake8stats.txt
           retention-days: 1
       - name: Coverage report
         run: |
