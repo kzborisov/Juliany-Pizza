@@ -56,5 +56,5 @@ jobs:
       - name: Generate test report badges
         run: |
           pip install genbadge
-          genbadge flake8 -i flake8stats.txt
-          genbadge coverage -i coverage.xml
+#          genbadge flake8 -i flake8stats.txt
+#          genbadge coverage -i coverage.xml
