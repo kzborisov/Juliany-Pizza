@@ -1,0 +1,1 @@
+[![Juliany Pizza Tests](https://github.com/kzborisov/Juliany-Pizza/actions/workflows/ci.yml/badge.svg)](https://github.com/kzborisov/Juliany-Pizza/actions/workflows/ci.yml)
