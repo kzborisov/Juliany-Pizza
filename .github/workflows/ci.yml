@@ -40,8 +40,8 @@ jobs:
           retention-days: 1
       - uses: actions/download-artifact@master
         with:
-          name: flake8-report code-coverage-report
-          path: flake8stats.txt coverage.xml
+          name: flake8-report
+          path: flake8stats.txt
       - run:
           pip install genbadge
           genbadge flake8 -i flake8stats.txt
