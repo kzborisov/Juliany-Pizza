@@ -18,45 +18,9 @@ jobs:
       - name: Lint with flake8
         run: |
           pip install flake8
-          flake8 --output-file flake8stats.txt
-      - name: Archive flake8 results
-        uses: actions/upload-artifact@v3
-        with:
-          name: flake8-report
-          path: flake8stats.txt
-          retention-days: 1
+          flake8
       - name: Coverage report
         run: |
           pip install coverage
           coverage run manage.py test
           coverage report
-          coverage xml -o coverage.xml
-      - name: Archive code coverage results
-        uses: actions/upload-artifact@v3
-        with:
-          name: code-coverage-report
-          path: coverage.xml
-          retention-days: 1
-
-  generate-badges:
-    name: Generate test badges
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Download artifacts flake8-report
-        uses: actions/download-artifact@v3
-        with:
-          name: flake8-report
-      - name: Download artifacts code-coverage-report
-        uses: actions/download-artifact@v3
-        with:
-          name: code-coverage-report
-      - name: Test artifact downloading
-        run: ls -R
-      - name: Generate test report badges
-        run: |
-          pip install genbadge
-          pip install genbadge[coverage]
-          pwd
-          ls -ltr
-          genbadge coverage
