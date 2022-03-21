@@ -22,15 +22,15 @@ jobs:
       - name: Lint with flake8
         run: |
           pip install flake8
-          flake8 --output-file flake8stats.txt
+          flake8
       - name: Coverage report
         run: |
           pip install coverage
           coverage run manage.py test
           coverage report
-          coverage xml -o coverage.xml
-          git config --global user.name 'kzborisov'
-          git config --global user.email 'kzborisov@users.noreply.github.com'
-          git add coverage-badge.svg flake8-badge.svg
-          git commit -am "Automated report"
-          git push
+#          coverage xml -o coverage.xml
+#          git config --global user.name 'kzborisov'
+#          git config --global user.email 'kzborisov@users.noreply.github.com'
+#          git add coverage-badge.svg flake8-badge.svg
+#          git commit -am "Automated report"
+#          git push
