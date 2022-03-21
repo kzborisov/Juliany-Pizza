@@ -59,4 +59,4 @@ jobs:
           pip install genbadge[coverage]
           pwd
           ls -ltr
-          genbadge coverage -i coverage.xml
+          genbadge coverage --input-file coverage.xml
