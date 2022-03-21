@@ -12,7 +12,7 @@
                     <span>Y</span>our <span>C</span>art!
                 </h3>
             </div>
-            <div class="cart-summary__items">
+            <div class="cart-summary__items empty-cart">
 
                 <table class="cart-summary__table">
 
@@ -58,14 +58,16 @@
 
                         {% endwith %}
                     {% empty %}
-                        <tr class="empty-cart">
-                            <h5 class="cart-summary__heading">Your cart is empty</h5>
+                        <tr class="cart_summary__table_row">
+                            <h5 class="cart-summary__empty-table-heading">Your cart is empty</h5>
+                            <a href="{% url 'menu' %}" class="btn--fill-left">Menu</a>
                         </tr>
 
                     {% endfor %}
                 </table>
                 {% if cart %}
                     <div class="cart-summary__final-price">
+                        {# TODO: Replace with the restaurant app delivery fee #}
                         <p class="final-price-par">Delivery fees: 2lv</p>
 
                         <h5 class="final-price">
@@ -74,7 +76,6 @@
                             {{ cart.total_price|floatformat:2 }}lv
                         </span>
                         </h5>
-                        {# TODO: Replace with the restaurant app delivery fee #}
                     </div>
 
                     <div class="cart-summary__order_btn">
@@ -101,7 +102,6 @@
                 },
                 success: function (json) {
                     document.getElementById("cart-items").innerHTML = json.qty
-                    {#document.getElementById("subtotal").innerHTML = json.subtotal#}
                     document.getElementById("item-total-price" + itemId).innerHTML = json.item_total_price
                     document.getElementById("final-price").innerHTML = json.final_price
                 },
@@ -128,12 +128,11 @@
                     $('.cart_summary__table_row[data-index="' + itemId + '"]').remove();
                     document.getElementById("cart-items").innerHTML = json.qty
                     document.getElementById("final-price").innerHTML = json.final_price
+
                     if (json.qty <= 0) {
                         $('#btn-order').removeClass('items-added');
                         $('#cart-items').hide();
-                        $('.cart-summary__final-price').hide();
-                        $('.cart-summary__order_btn').hide();
-                        $('.empty-cart').append($("<p></p>").text("Your cart is empty."));
+                        window.location.replace("{% url 'menu' %}");
                     }
                 },
                 error: function (xhr, errmsg, err) {

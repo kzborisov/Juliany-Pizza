@@ -1067,6 +1067,10 @@ nav {
 }
 
 .cart-summary__items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     width: 90%;
     height: 80%;
     margin: 0 auto;
@@ -1179,6 +1183,14 @@ nav {
     align-items: center;
     justify-content: center;
 }
- .cart-summary__order_btn a {
-     margin: 0;
- }
+
+.cart-summary__order_btn a {
+    margin: 0;
+}
+
+.cart-summary__empty-table-heading {
+    font-size: 3.2rem;
+    color: var(--delta);
+    letter-spacing: .3rem;
+    text-transform: capitalize;
+}
