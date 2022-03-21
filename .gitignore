@@ -1,7 +1,10 @@
+*.pyc
+*~
+__pycache__
 venv
 .idea
-__pycache__
 db.sqlite3
+.DS_Store
+.reports
 media
-htmlcov
 .coverage
