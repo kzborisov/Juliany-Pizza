@@ -24,6 +24,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: flake8-report
+          path: flake8stats.txt
           retention-days: 1
       - name: Coverage report
         run: |
@@ -35,6 +36,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: code-coverage-report
+          path: coverage.xml
           retention-days: 1
       - uses: actions/download-artifact@master
         with:
