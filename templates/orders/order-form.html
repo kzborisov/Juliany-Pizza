@@ -1,0 +1,30 @@
+{% extends "base/base.html" %}
+
+{% block title %}
+    Place Order
+{% endblock %}
+
+{% block content %}
+    <section class="order">
+        <div class="order__container">
+            <div class="order__heading-container">
+                <h3 class="order__heading">
+                    {% if user.is_authenticated %}
+                        <span>Y</span>our <span>D</span>ata!
+                    {% else %}
+                        <span>O</span>rder <span>A</span>s <span>G</span>uest!
+                        <p class="order__par">
+                            Or <a href="{% url 'login' %}">Login</a>
+                        </p>
+                    {% endif %}
+                </h3>
+            </div>
+
+            <form method="POST" action="{% url 'place order' %}" class="generic-form order__form">
+                {% csrf_token %}
+                {{ form }}
+                <button class="btn--fill-left">Order!</button>
+            </form>
+        </div>
+    </section>
+{% endblock %}

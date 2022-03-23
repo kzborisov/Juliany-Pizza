@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    Order Placed
+{% endblock %}
+
+{% block content %}
+    <section class="order_success">
+        <div class="order_success__container generic-form">
+            <div class="order_success__heading-container">
+                <h3 class="order_success__heading">
+                    Successfully ordered!
+                </h3>
+
+                <a href="{% url 'index' %}" class="btn--fill-left">Home</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

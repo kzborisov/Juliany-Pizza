@@ -49,6 +49,10 @@ class Cart:
 
         self.__save()
 
+    def clear(self):
+        del self.session[self.SESSION_KEY]
+        self.__save()
+
     @property
     def subtotal_price(self):
         """

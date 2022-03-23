@@ -45,6 +45,7 @@ PROJECT_APPS = (
     'juliany_pizza.authentication',
     'juliany_pizza.menu',
     'juliany_pizza.cart',
+    'juliany_pizza.orders',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
