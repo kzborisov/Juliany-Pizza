@@ -1,5 +1,7 @@
+from django import forms
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UserCreationForm, SetPasswordForm, PasswordResetForm, PasswordChangeForm
+from django.contrib.auth.forms import UserCreationForm, SetPasswordForm, PasswordResetForm, PasswordChangeForm, \
+    AuthenticationForm
 from django.core.exceptions import ValidationError
 
 from juliany_pizza.authentication.models import CustomUser, Profile
@@ -28,6 +30,24 @@ class UserRegistrationForm(UserCreationForm):
             profile.save()
 
         return user
+
+
+class CustomAuthForm(AuthenticationForm):
+    username = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                'class': 'validate',
+                'placeholder': 'Email',
+            },
+        ),
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={
+                'placeholder': 'Password',
+            },
+        ),
+    )
 
 
 class UserPasswordResetForm(PasswordResetForm):

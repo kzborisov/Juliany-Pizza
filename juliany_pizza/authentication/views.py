@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
 from juliany_pizza.authentication.forms import UserRegistrationForm, UserSetPasswordForm, UserPasswordResetForm, \
-    UserPasswordChangeForm
+    UserPasswordChangeForm, CustomAuthForm
 
 
 class UserRegistrationView(CreateView):
@@ -21,6 +21,7 @@ class UserRegistrationView(CreateView):
 
 class UserLoginView(LoginView):
     template_name = 'accounts/login.html'
+    authentication_form = CustomAuthForm
 
     def get_success_url(self):
         next = self.request.GET.get('next', None)
