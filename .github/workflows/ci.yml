@@ -22,5 +22,5 @@ jobs:
       - name: Coverage report
         run: |
           pip install coverage
-          coverage run manage.py test
+          coverage run --omit=*/venv/*,*/migrations/* manage.py test
           coverage report
