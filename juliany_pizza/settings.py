@@ -24,9 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+my4xblgta@co3#hscc7j2pw+ir*biwtqv3v&s2+a&#9509cr_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'https://git.heroku.com/juliany-pizza.git',
+]
 
 # Application definition
 DJANGO_APPS = (
