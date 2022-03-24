@@ -3,6 +3,7 @@ certifi==2021.10.8
 coverage==6.3.2
 Django==3.2.12
 flake8==4.0.1
+gunicorn==20.1.0
 Pillow==8.4.0
 pyflakes==2.4.0
 sqlparse==0.4.2
