@@ -28,7 +28,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'https://juliany-pizza.herokuapp.com/',
+    'juliany-pizza.herokuapp.com',
 ]
 
 # Application definition
