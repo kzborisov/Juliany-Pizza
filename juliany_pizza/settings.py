@@ -28,7 +28,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'https://git.heroku.com/juliany-pizza.git',
+    'https://juliany-pizza.herokuapp.com/',
 ]
 
 # Application definition
