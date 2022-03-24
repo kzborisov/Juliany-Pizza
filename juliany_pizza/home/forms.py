@@ -83,5 +83,5 @@ class ContactForm(forms.Form):
             f'[Juliany Pizza] FROM:{sender} - {subject}',
             message,
             settings.EMAIL_HOST_USER,
-            ['kzborisov94@gmail.com'],
+            [settings.EMAIL_HOST_USER],
         )
