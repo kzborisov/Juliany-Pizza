@@ -2,6 +2,9 @@ name: Juliany Pizza Tests
 
 on: [ push ]
 
+env:
+  APP_ENVIRONMENT: Development
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,9 +22,9 @@ jobs:
         run: |
           pip install flake8
           flake8
-#          TODO: Not working with the heroku database, should be fixed!
-#      - name: Coverage report
-#        run: |
-#          pip install coverage
-#          coverage run --omit=*/venv/*,*/migrations/* manage.py test
-#          coverage report
+
+      - name: Coverage report
+        run: |
+          pip install coverage
+          coverage run --omit=*/venv/*,*/migrations/* manage.py test
+          coverage report
