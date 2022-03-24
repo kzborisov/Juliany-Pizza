@@ -1,0 +1,1328 @@
+/* =========================================== */
+/*                IMPORTS                      */
+/* =========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('./buttons.css');
+@import url('./forms.css');
+@import url('./animations.css');
+
+
+/* =========================================== */
+/*                VARIABLE                     */
+/* =========================================== */
+:root {
+    /* Color Palette */
+    --delta: #A5A79A;
+    --gamboge-opacity: rgba(236, 164, 66, 0.45);
+    --gamboge: rgba(236, 164, 66, 0.41);
+    --tomato: #CA2521;
+    --pepperoni: #61120E;
+    --almost-transparent-white: rgba(255, 255, 255, 0.8);
+
+    /* Fonts */
+    --default-font-size: 62.5%;
+    --font-color: #444;
+    --main-font: 'Poppins', sans-serif;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--main-font);
+    font-size: var(--default-font-size);
+    color: var(--font-color);
+}
+
+a {
+    color: var(--font-color);
+    text-decoration: none;
+}
+
+.flexed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* =========================================== */
+/*              NAVIGATION                     */
+/* =========================================== */
+nav {
+    width: 100%;
+    height: 10vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--almost-transparent-white);
+    z-index: 1024;
+}
+
+.nav__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+
+}
+
+.nav__logo {
+    font-size: 3.2rem;
+    font-weight: 700;
+    letter-spacing: .2rem;
+}
+
+.nav__logo span {
+    font-size: 3.4rem;
+    color: var(--pepperoni);
+}
+
+.nav__list {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    white-space: nowrap;
+}
+
+.nav__item {
+    list-style: none;
+    font-size: 3.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .08rem;
+    margin-right: 3rem;
+}
+
+.nav__item a {
+    display: flex;
+}
+
+.items-added {
+    color: var(--tomato);
+}
+
+#cart-items {
+    font-size: 1.4rem;
+    color: var(--tomato);
+}
+
+/* =========================================== */
+/*               INDEX                         */
+/* =========================================== */
+#index {
+    background: url(../img/index-bg.jpg) center no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.index__heading-box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 40%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    right: 4%;
+    transform: translateY(-50%);
+    animation: fadeIn 4s ease backwards;
+
+}
+
+.index__title {
+    font-size: 7.6rem;
+    text-align: center;
+    margin: 2rem 0;
+    letter-spacing: .2rem;
+}
+
+.index__title span {
+    font-size: 7.8rem;
+    color: var(--pepperoni);
+}
+
+.index__par {
+    font-size: 4rem;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.index__par span {
+    font-size: 4rem;
+    color: var(--pepperoni);
+    position: relative;
+}
+
+.index__par span:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: .3rem;
+    background: var(--pepperoni);
+}
+
+.index__buttons-box {
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.index__buttons-box a {
+    padding: 1.5rem 1.8rem;
+}
+
+
+/* =========================================== */
+/*               REGISTER                      */
+/* =========================================== */
+.register {
+    background: url(../img/register-pizza.jpg) center no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.register__container {
+    width: 40%;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+}
+
+.register__heading-container {
+    margin-bottom: 5rem;
+    animation: fadeIn 2s ease forwards;
+}
+
+.register__heading {
+    font-size: 5.4rem;
+    text-align: center;
+    letter-spacing: .2rem;
+}
+
+.register__heading span {
+    font-size: 5.6rem;
+    color: var(--pepperoni);
+}
+
+.register__form {
+    max-width: 75%;
+    animation: moveInLeft 1.4s ease forwards;
+}
+
+.register__form label {
+    font-size: 2rem;
+    text-transform: capitalize;
+    letter-spacing: .2rem;
+    width: 80%;
+    font-weight: 600;
+    color: var(--delta);
+}
+
+.register__form input {
+    height: 4rem;
+    width: 80%;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    margin: .5rem auto 1rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+}
+
+.register__login-link {
+    font-size: 1.4rem;
+    color: var(--delta);
+    text-align: center;
+    margin: 1rem 0 .5rem 0;
+}
+
+.register__login-link a {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--gamboge);
+}
+
+/* =========================================== */
+/*               Login                         */
+/* =========================================== */
+.login {
+    background: url(../img/register-pizza.jpg) center no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.login__container {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    width: 40%;
+}
+
+.login__heading-container {
+    margin-bottom: 5rem;
+    animation: fadeIn 2s ease forwards;
+}
+
+.login__heading {
+    font-size: 5.4rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+}
+
+.login__par {
+    font-size: 2.2rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.login__heading span {
+    font-size: 5.6rem;
+    color: var(--pepperoni);
+}
+
+.login__form {
+    max-width: 75%;
+    animation: moveInBottom 1.4s ease forwards;
+}
+
+.login__form label {
+    font-size: 2rem;
+    text-transform: capitalize;
+    letter-spacing: .2rem;
+    width: 80%;
+    font-weight: 600;
+    color: var(--delta);
+}
+
+.login__form input {
+    height: 4rem;
+    width: 80%;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    margin: .5rem auto 1rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+}
+
+.login__error-msg {
+    font-size: 1.4rem;
+    text-align: center;
+    color: var(--tomato);
+}
+
+.login__register-link {
+    font-size: 1.4rem;
+    color: var(--delta);
+    text-align: center;
+    margin: 1rem 0 .5rem 0;
+}
+
+.login__register-link a {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--gamboge);
+}
+
+
+/* =========================================== */
+/*             Profile                         */
+/* =========================================== */
+.profile {
+    background: url(../img/register-pizza.jpg) center no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.profile-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 80%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.profile__heading-container {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem;
+}
+
+.profile__heading {
+    font-size: 5.4rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+    color: var(--delta);
+}
+
+.profile__heading span {
+    font-size: 5.6rem;
+    color: var(--pepperoni);
+}
+
+.profile__form {
+    max-width: 90%;
+    flex-direction: row;
+    position: relative;
+    height: 80%;
+    animation: fadeIn 2s ease backwards;
+}
+
+.profile__form label {
+    font-size: 2rem;
+    text-transform: capitalize;
+    letter-spacing: .2rem;
+    width: 80%;
+    font-weight: 600;
+    color: var(--delta);
+}
+
+.profile__form input {
+    height: 4rem;
+    width: 80%;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    margin: .5rem auto 1rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+}
+
+/* =========================================== */
+/*               Contacts                      */
+/* =========================================== */
+#bgVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+
+}
+
+.contacts {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.contacts__container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 75vh;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: .5rem;
+    background: rgba(0, 0, 0, .8);
+    box-shadow: 1rem 1.5rem 2rem rgba(0, 0, 0, .6);
+    padding: 3rem 1rem;
+}
+
+.contacts__heading-container {
+    margin-bottom: 5rem;
+    animation: fadeIn 2s ease forwards;
+}
+
+.contacts__heading {
+    font-size: 5.4rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    color: var(--delta);
+}
+
+.contacts__heading span {
+    font-size: 5.6rem;
+    color: var(--pepperoni);
+}
+
+.contacts__form {
+    max-width: 35%;
+    position: relative;
+    height: 90%;
+    animation: fadeIn 2s ease backwards;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.contacts__form label {
+    font-size: 2rem;
+    text-transform: capitalize;
+    letter-spacing: .2rem;
+    width: 80%;
+    font-weight: 600;
+    color: var(--delta);
+}
+
+.contacts__form input,
+.contacts__form textarea {
+    height: 4rem;
+    width: 80%;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    margin: .5rem auto 1rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+}
+
+.contacts__form textarea {
+    height: 12rem;
+}
+
+.contacts__form button {
+    padding: 1rem 3.5rem;
+}
+
+.contacts__info {
+    width: 40%;
+    height: 90%;
+}
+
+.contacts__contacts_items {
+    height: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.contacts__item {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color: var(--delta);
+    letter-spacing: .2rem;
+    font-weight: 600;
+}
+
+.contacts__item .contacts_img {
+    background: #fff;
+    border-radius: 50%;
+    width: 7rem;
+    height: 7rem;
+    margin: 0 2rem;
+    position: relative;
+}
+
+.contacts__item .contacts_par {
+
+}
+
+.contacts_par p {
+    font-size: 2rem;
+    color: var(--delta);
+}
+
+.contacts_par p a {
+    font-size: 2rem;
+    color: var(--delta);
+}
+
+
+.contacts__item img {
+    padding: 1.2rem;
+    width: 6rem;
+    height: 6rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* =========================================== */
+/*               ABOUT                         */
+/* =========================================== */
+.about {
+    background: url(../img/register-pizza.jpg) center no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.about__container {
+    width: 90%;
+    border-radius: .5rem;
+    background: rgba(0, 0, 0, .8);
+    box-shadow: 1rem 1.5rem 2rem rgba(0, 0, 0, .6);
+    padding: 3rem 1rem;
+}
+
+.about__heading-container {
+    margin-bottom: 5rem;
+    animation: fadeIn 2s ease forwards;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about__heading {
+    font-size: 5.4rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+    color: var(--delta);
+}
+
+.about__heading span {
+    font-size: 5.6rem;
+    color: var(--pepperoni);
+}
+
+.about__par {
+    padding: 2rem;
+    font-size: 2rem;
+    text-align: center;
+    width: 50%;
+    font-weight: 600;
+    color: #fff;
+}
+
+
+/* =========================================== */
+/*               MENU                          */
+/* =========================================== */
+.menu {
+    background: url(../img/register-pizza.jpg) center no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.menu__container {
+    width: 90%;
+    max-height: 75vh;
+    overflow-y: auto;
+    border-radius: .5rem;
+    background: rgba(0, 0, 0, .8);
+    box-shadow: 1rem 1.5rem 2rem rgba(0, 0, 0, .6);
+    padding: 3rem 1rem;
+}
+
+.menu__heading-container {
+    margin-bottom: 5rem;
+    animation: fadeIn 2s ease forwards;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.menu__heading {
+    font-size: 5.4rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+    color: var(--delta);
+}
+
+.menu__heading span {
+    font-size: 5.6rem;
+    color: var(--pepperoni);
+}
+
+.menu__items {
+    width: 90%;
+    margin: 2rem auto;
+}
+
+.menu__table {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.menu__table tr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem;
+    position: relative;
+    padding: .5rem;
+}
+
+.menu__table tr:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: .2rem;
+    background: var(--pepperoni);
+}
+
+.menu__table .menu__item {
+    text-align: left;
+}
+
+.menu__table .menu__item-name {
+    font-size: 2rem;
+    color: var(--delta);
+    letter-spacing: .1rem;
+}
+
+.menu__table .menu__ingredients {
+    font-size: 1.2rem;
+    color: var(--delta);
+    letter-spacing: .1rem;
+
+}
+
+.menu__price-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.menu__price {
+    font-size: 2rem;
+    color: var(--delta);
+    margin-right: 2rem;
+}
+
+.menu__category_name {
+    font-size: 3.2rem;
+    color: var(--delta);
+    text-align: center;
+    letter-spacing: .3rem;
+    text-transform: capitalize;
+}
+
+.menu__add-to-cart-container {
+    width: 3rem;
+    height: 3rem;
+    display: inline-block;
+    border-radius: 50%;
+    background: #fff;
+    position: relative;
+}
+
+.menu__add-to-cart-options select {
+    width: 6rem;
+    height: 3rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0 1.3rem;
+    border: none;
+    outline: none;
+    border-radius: 2rem;
+    text-align: center;
+    background: #fff;
+}
+
+.menu__add-to-cart-options select option {
+    font-size: 1.8rem;
+}
+
+/* =========================================== */
+/*         Password Reset                      */
+/* =========================================== */
+.password-reset,
+.password-sent,
+.password-reset-done {
+    background: url(../img/register-pizza.jpg) center no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.password-reset__container {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    width: 40%;
+}
+
+.password-reset__heading-container {
+    margin-bottom: 5rem;
+    animation: fadeIn 2s ease forwards;
+}
+
+.password-reset__heading {
+    font-size: 5.4rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+}
+
+.password-reset__par {
+    font-size: 2.2rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.password-reset__heading span {
+    font-size: 5.6rem;
+    color: var(--pepperoni);
+}
+
+.password-reset__form {
+    max-width: 75%;
+    animation: moveInBottom 1.4s ease forwards;
+}
+
+.password-reset__form label {
+    font-size: 2rem;
+    text-transform: capitalize;
+    letter-spacing: .2rem;
+    width: 80%;
+    font-weight: 600;
+    color: var(--delta);
+}
+
+.password-reset__form input {
+    height: 4rem;
+    width: 80%;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    margin: .5rem auto 1rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+}
+
+.password-reset__error-msg {
+    font-size: 1.4rem;
+    text-align: center;
+    color: var(--tomato);
+}
+
+/* =========================================== */
+/*         Password Reset Confirm              */
+/* =========================================== */
+.reset-password-confirm {
+    background: url(../img/register-pizza.jpg) center no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.reset-password-confirm__container {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    width: 40%;
+}
+
+.reset-password-confirm__heading-container {
+    margin-bottom: 5rem;
+    animation: fadeIn 2s ease forwards;
+}
+
+.reset-password-confirm__heading {
+    font-size: 5.4rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+}
+
+.reset-password-confirm__par {
+    font-size: 2.2rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.reset-password-confirm__heading span {
+    font-size: 5.6rem;
+    color: var(--pepperoni);
+}
+
+.reset-password-confirm__form {
+    max-width: 75%;
+    animation: moveInBottom 1.4s ease forwards;
+}
+
+.reset-password-confirm__form label {
+    font-size: 2rem;
+    text-transform: capitalize;
+    letter-spacing: .2rem;
+    width: 80%;
+    font-weight: 600;
+    color: var(--delta);
+}
+
+.reset-password-confirm__form input {
+    height: 4rem;
+    width: 80%;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    margin: .5rem auto 1rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+}
+
+.reset-password-confirm__error-msg {
+    font-size: 1.4rem;
+    text-align: center;
+    color: var(--tomato);
+}
+
+.reset-password-confirm-heading--invalid {
+    font-size: 2rem;
+    text-align: center;
+    color: var(--tomato);
+}
+
+.reset-password-confirm-par--invalid {
+    font-size: 1.4rem;
+    text-align: center;
+    color: var(--tomato);
+}
+
+/* =========================================== */
+/*           Change Password                   */
+/* =========================================== */
+.password-change {
+    background: url(../img/register-pizza.jpg) center no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.password-change__container {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    width: 40%;
+}
+
+.password-change__heading-container {
+    margin-bottom: 5rem;
+    animation: fadeIn 2s ease forwards;
+}
+
+.password-change__heading {
+    font-size: 5.4rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+}
+
+.password-change__par {
+    font-size: 2.2rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.password-change__heading span {
+    font-size: 5.6rem;
+    color: var(--pepperoni);
+}
+
+.password-change__form {
+    max-width: 75%;
+    animation: moveInBottom 1.4s ease forwards;
+}
+
+.password-change__form label {
+    font-size: 2rem;
+    text-transform: capitalize;
+    letter-spacing: .2rem;
+    width: 80%;
+    font-weight: 600;
+    color: var(--delta);
+}
+
+.password-change__form input {
+    height: 4rem;
+    width: 80%;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    margin: .5rem auto 1rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+}
+
+.password-change__error-msg {
+    font-size: 1.4rem;
+    text-align: center;
+    color: var(--tomato);
+}
+
+.password-change-heading--invalid {
+    font-size: 2rem;
+    text-align: center;
+    color: var(--tomato);
+}
+
+.password-change-par--invalid {
+    font-size: 1.4rem;
+    text-align: center;
+    color: var(--tomato);
+}
+
+/* =========================================== */
+/*               CART                          */
+/* =========================================== */
+.cart-summary {
+    background: url(../img/register-pizza.jpg) center no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-summary__container {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    width: 90%;
+    max-height: 75vh;
+    border-radius: .5rem;
+    background: rgba(0, 0, 0, .8);
+    box-shadow: 1rem 1.5rem 2rem rgba(0, 0, 0, .6);
+    padding: 3rem 1rem;
+    overflow-y: auto;
+}
+
+.cart-summary__heading-container {
+    margin-bottom: 5rem;
+    animation: fadeIn 2s ease forwards;
+}
+
+.cart-summary__heading {
+    font-size: 5.4rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+    color: var(--delta);
+}
+
+.cart-summary__par {
+    font-size: 2.2rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.cart-summary__heading span {
+    font-size: 5.6rem;
+    color: var(--pepperoni);
+}
+
+.cart-summary__items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+    height: 80%;
+    margin: 0 auto;
+}
+
+.cart-summary__table {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cart-summary__table tr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem;
+    position: relative;
+    padding: .5rem;
+}
+
+.cart-summary__table tr:after {
+    content: "";
+    position: absolute;
+    bottom: -10%;
+    left: 0;
+    width: 100%;
+    height: .2rem;
+    background: var(--pepperoni);
+}
+
+.cart-summary__table .cart-summary__item {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cart-summary__item-info {
+    width: 60%;
+}
+
+.cart-summary__item-action {
+    width: 25%;
+}
+
+.cart-summary__table .cart-summary__item-name,
+.cart-summary__item-size,
+.cart-summary__item-price,
+.cart-summary__item-price span {
+    font-size: 2.2rem;
+    color: var(--delta);
+    letter-spacing: .1rem;
+}
+
+.cart-summary__item-select,
+.update-button,
+.delete-button {
+    font-size: 1.6rem;
+    border: none;
+    outline: none;
+    border-radius: 2rem;
+    padding: .5rem;
+    font-weight: 500;
+}
+
+.cart-summary__item-select option {
+    font-size: 1.6rem;
+}
+
+.update-button {
+    text-transform: capitalize;
+    margin: initial;
+}
+
+.delete-button {
+    background: var(--tomato);
+    color: #fff;
+    transition: all .3s ease-in;
+}
+
+.delete-button:active,
+.update-button:active {
+    transform: scale(1.3);
+}
+
+.cart-summary__final-price {
+    margin: 3rem 0 1rem;
+}
+
+.final-price,
+.final-price span {
+    font-size: 2.2rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+    font-weight: 600;
+    color: var(--delta);
+}
+
+.final-price-par {
+    font-size: 1.4rem;
+    text-align: center;
+    letter-spacing: .1rem;
+    font-weight: 500;
+    color: var(--delta);
+}
+
+.cart-summary__order_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-summary__order_btn a {
+    margin: 0;
+}
+
+.cart-summary__empty-table-heading {
+    font-size: 3.2rem;
+    color: var(--delta);
+    letter-spacing: .3rem;
+    text-transform: capitalize;
+}
+
+/* =========================================== */
+/*               Order                         */
+/* =========================================== */
+.order {
+    background: url(../img/register-pizza.jpg) center no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.order__container {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    width: 40%;
+}
+
+.order__heading-container {
+    margin-bottom: 5rem;
+    animation: fadeIn 2s ease forwards;
+}
+
+.order__heading {
+    font-size: 5.4rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+}
+
+.order__par {
+    font-size: 2.2rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.order__heading span {
+    font-size: 5.6rem;
+    color: var(--pepperoni);
+}
+
+.order__form {
+    max-width: 75%;
+    animation: moveInBottom 1.4s ease forwards;
+}
+
+.order__form label {
+    font-size: 2rem;
+    text-transform: capitalize;
+    letter-spacing: .2rem;
+    width: 80%;
+    font-weight: 600;
+    color: var(--delta);
+}
+
+.order__form input {
+    height: 4rem;
+    width: 80%;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    margin: .5rem auto 1rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+}
+
+.order__error-msg {
+    font-size: 1.4rem;
+    text-align: center;
+    color: var(--tomato);
+}
+
+.order__register-link {
+    font-size: 1.4rem;
+    color: var(--delta);
+    text-align: center;
+    margin: 1rem 0 .5rem 0;
+}
+
+
+/* =========================================== */
+/*            Successful Order                 */
+/* =========================================== */
+.order_success {
+    background: url(../img/register-pizza.jpg) center no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.order_success__container {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    width: 40%;
+}
+
+.order_success__heading-container {
+    margin-bottom: 5rem;
+    animation: fadeIn 2s ease forwards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.order_success__heading {
+    font-size: 5.4rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+    color: var(--delta);
+}
+
+.order_success__par {
+    font-size: 2.2rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.order_success__heading span {
+    font-size: 5.6rem;
+    color: var(--pepperoni);
+}
