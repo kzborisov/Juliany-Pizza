@@ -1,51 +1,55 @@
-<nav>
-    <div class="nav__wrapper">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
         <a href="{% url 'index' %}" class="nav__logo">
             <span>J</span>uliany <span>P</span>izza
         </a>
-        <ul id="nav" class="nav__list">
-            <li class="nav__item">
-                <a href="{% url 'index' %}" class="btn--underline">Home</a>
-            </li>
-            <li class="nav__item">
-                <a href="{% url 'menu' %}" class="btn--underline">Our Menu</a>
-            </li>
-            <li class="nav__item">
-                <a href="{% url 'about' %}" class="btn--underline">About</a>
-            </li>
-            <li class="nav__item">
-                <a href="{% url 'contacts' %}" class="btn--underline">Contacts</a>
-            </li>
-
-            {% if user.is_authenticated %}
-                <li class="nav__item">
-                    <a href="{% url 'profile' user.pk %}" class="btn--underline">Profile</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a aria-current="page" href="{% url 'index' %}" class="nav-link btn--underline">Home</a>
                 </li>
-                <li class="nav__item">
-                    <a href="{% url 'logout' %}" class="btn--underline">Log Out</a>
+                <li class="nav-item">
+                    <a href="{% url 'menu' %}" class="nav-link btn--underline">Our Menu</a>
                 </li>
-            {% else %}
-                <li class="nav__item">
-                    <a href="{% url 'login' %}" class="btn--underline">Log In</a>
+                <li class="nav-item">
+                    <a href="{% url 'about' %}" class="nav-link btn--underline">About</a>
                 </li>
-                <li class="nav__item">
-                    <a href="{% url 'register' %}" class="btn--underline">Register</a>
+                <li class="nav-item">
+                    <a href="{% url 'contacts' %}" class="nav-link btn--underline">Contacts</a>
                 </li>
-            {% endif %}
-
-            <li class="nav__item">
-                <a id="btn-order" href="{% url 'cart summary' %}" class="btn--underline">
-                    Order
-                    {% with total_qty=cart|length %}
-                        <span id="cart-items">
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a href="{% url 'profile' user.pk %}" class="nav-link btn--underline">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'logout' %}" class="nav-link btn--underline">Log Out</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a href="{% url 'login' %}" class="nav-link btn--underline">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'register' %}" class="nav-link btn--underline">Register</a>
+                    </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a id="btn-order" href="{% url 'cart summary' %}" class="nav-link btn--underline">
+                        Order
+                        {% with total_qty=cart|length %}
+                            <span id="cart-items">
                             {% if total_qty > 0 %}
                                 {{ total_qty }}
                             {% else %}
                             {% endif %}
                         </span>
-                    {% endwith %}
-                </a>
-            </li>
-        </ul>
+                        {% endwith %}
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>

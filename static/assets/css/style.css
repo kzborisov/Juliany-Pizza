@@ -2,13 +2,14 @@
 /*                IMPORTS                      */
 /* =========================================== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('./components/navigation.css');
 @import url('./buttons.css');
 @import url('./forms.css');
 @import url('./animations.css');
 
 
 /* =========================================== */
-/*                VARIABLE                     */
+/*                VARIABLES                    */
 /* =========================================== */
 :root {
     /* Color Palette */
@@ -35,7 +36,9 @@
     color: var(--font-color);
 }
 
-a {
+a,
+a:hover,
+a:active {
     color: var(--font-color);
     text-decoration: none;
 }
@@ -47,69 +50,6 @@ a {
     flex-direction: column;
 }
 
-/* =========================================== */
-/*              NAVIGATION                     */
-/* =========================================== */
-nav {
-    width: 100%;
-    height: 10vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: var(--almost-transparent-white);
-    z-index: 1024;
-}
-
-.nav__wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 90%;
-    height: 100%;
-    margin: 0 auto;
-
-}
-
-.nav__logo {
-    font-size: 3.2rem;
-    font-weight: 700;
-    letter-spacing: .2rem;
-}
-
-.nav__logo span {
-    font-size: 3.4rem;
-    color: var(--pepperoni);
-}
-
-.nav__list {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    white-space: nowrap;
-}
-
-.nav__item {
-    list-style: none;
-    font-size: 3.6rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .08rem;
-    margin-right: 3rem;
-}
-
-.nav__item a {
-    display: flex;
-}
-
-.items-added {
-    color: var(--tomato);
-}
-
-#cart-items {
-    font-size: 1.4rem;
-    color: var(--tomato);
-}
 
 /* =========================================== */
 /*               INDEX                         */
@@ -117,7 +57,7 @@ nav {
 #index {
     background: url(../img/index-bg.jpg) center no-repeat;
     background-size: cover;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     position: relative;
 }
