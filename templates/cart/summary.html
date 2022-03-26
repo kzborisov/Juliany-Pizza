@@ -96,6 +96,7 @@
                 },
                 success: function (json) {
                     document.getElementById("cart-items").innerHTML = json.qty
+                    document.getElementById("cart-items-outer").innerHTML = json.qty
                     document.getElementById("item-total-price" + itemId).innerHTML = json.item_total_price
                     document.getElementById("final-price").innerHTML = json.final_price
                 },
@@ -121,6 +122,7 @@
                 success: function (json) {
                     $('.cart_summary__table_row[data-index="' + itemId + '"]').remove();
                     document.getElementById("cart-items").innerHTML = json.qty
+                    document.getElementById("cart-items-outer").innerHTML = json.qty
                     document.getElementById("final-price").innerHTML = json.final_price
 
                     if (json.qty <= 0) {

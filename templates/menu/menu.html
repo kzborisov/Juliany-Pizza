@@ -65,9 +65,9 @@
                 },
                 success: function (json) {
                     document.getElementById("cart-items").innerHTML = json.qty
+                    document.getElementById("cart-items-outer").innerHTML = json.qty
                     let btn = document.getElementById('btn-order');
                     btn.classList.add('items-added');
-                    {#document.getElementById("subtotal").innerHTML = json.subtotal#}
                 },
                 error: function (xhr, errmsg, err) {
                 }
