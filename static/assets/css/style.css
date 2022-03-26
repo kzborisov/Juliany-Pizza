@@ -84,7 +84,15 @@ a:active {
 }
 
 .items-added {
-    color: var(--tomato)!important;
+    color: var(--tomato) !important;
+}
+
+#cart-items-outer,
+#cart-items {
+    color: var(--tomato) !important;
+    font-size: 1.6rem;
+    position: absolute;
+    padding-left: 1rem;
 }
 
 /* =========================================== */
