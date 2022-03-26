@@ -69,7 +69,8 @@
     z-index: -1;
 }
 
-.btn--fill-left:hover {
+.btn--fill-left:hover,
+.btn--fill-left:active {
     color: #fff;
 }
 
