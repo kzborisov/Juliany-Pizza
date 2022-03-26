@@ -6,16 +6,13 @@
 
 {% block content %}
     <section class="order">
-        <div class="order__container">
-            <div class="order__heading-container">
-                <h3 class="order__heading">
+        <div class="section-container">
+            <div class="section-container__heading-container">
+                <h3 class="section-container__heading">
                     {% if user.is_authenticated %}
                         <span>Y</span>our <span>D</span>ata!
                     {% else %}
                         <span>O</span>rder <span>A</span>s <span>G</span>uest!
-                        <p class="order__par">
-                            Or <a href="{% url 'login' %}">Login</a>
-                        </p>
                     {% endif %}
                 </h3>
             </div>

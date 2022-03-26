@@ -1,0 +1,69 @@
+/* =========================================== */
+/*               INDEX                         */
+/* =========================================== */
+#index {
+    background: url(../../img/index-bg.jpg) center no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.index__heading-box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 40%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    right: 4%;
+    transform: translateY(-50%);
+    animation: fadeIn 4s ease backwards;
+}
+
+.index__title {
+    font-size: 7.6rem;
+    text-align: center;
+    margin: 2rem 0;
+    letter-spacing: .2rem;
+}
+
+.index__title span {
+    font-size: 7.8rem;
+    color: var(--pepperoni);
+}
+
+.index__par {
+    font-size: 4rem;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.index__par span {
+    font-size: 4rem;
+    color: var(--pepperoni);
+    position: relative;
+}
+
+.index__par span:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: .3rem;
+    background: var(--pepperoni);
+}
+
+.index__buttons-box {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.index__buttons-box a {
+    padding: 1.5rem 1.8rem;
+}
