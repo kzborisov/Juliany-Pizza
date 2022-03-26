@@ -1209,6 +1209,10 @@ a:active {
     .index__buttons-box {
         width: 80%;
     }
+
+    .menu__table {
+        width: 90%;
+    }
 }
 
 /* 768px and smaller) */
@@ -1269,6 +1273,31 @@ a:active {
 
     .contacts__form {
         max-width: 100%;
+    }
+
+    .login__container {
+        min-width: 90%;
+        border-radius: .5rem;
+        background: rgba(0, 0, 0, .8);
+        box-shadow: 1rem 1.5rem 2rem rgba(0, 0, 0, .6);
+    }
+
+    .login__heading {
+        color: var(--delta);
+        font-size: 3.8rem;
+    }
+
+    .login__par {
+        color: var(--delta);
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .login__container .generic-form {
+        box-shadow: none;
+        background: initial;
+        padding: 0;
+        margin-bottom: 2rem;
     }
 }
 
