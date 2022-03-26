@@ -452,6 +452,8 @@ a:active {
 
 .about__container {
     width: 90%;
+    max-height: 70vh;
+    overflow: auto;
     border-radius: .5rem;
     background: rgba(0, 0, 0, .8);
     box-shadow: 1rem 1.5rem 2rem rgba(0, 0, 0, .6);
@@ -1233,6 +1235,10 @@ a:active {
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 10;
+    }
+
+    .about__par {
+        width: 80%;
     }
 }
 
