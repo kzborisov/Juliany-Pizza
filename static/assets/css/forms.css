@@ -11,8 +11,47 @@
     box-shadow: 1rem 1.5rem 2rem rgba(0, 0, 0, .6);
 }
 
+.form-label {
+    font-size: 2rem;
+    text-transform: capitalize;
+    letter-spacing: .2rem;
+    width: 80%;
+    font-weight: 600;
+    color: var(--delta);
+}
+
 .generic-form label {
+    font-size: 2rem;
+    text-transform: capitalize;
+    letter-spacing: .2rem;
+    width: 80%;
+    font-weight: 600;
+    color: var(--delta);
     margin: .5rem auto;
+}
+
+.generic-form input {
+    height: 4rem;
+    width: 80%;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    margin: .5rem auto 1rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+}
+
+.form-footer {
+    font-size: 1.4rem;
+    color: var(--delta);
+    text-align: center;
+    margin: 1rem 0 .5rem 0;
+}
+
+.form-footer a {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--gamboge);
 }
 
 .errorlist li {

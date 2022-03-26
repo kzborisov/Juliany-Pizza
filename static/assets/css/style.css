@@ -51,6 +51,14 @@ a:active {
     flex-direction: column;
 }
 
+.section {
+    background: url(../img/register-pizza.jpg) center no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
 .section-container {
     position: absolute;
     top: 50%;
@@ -98,119 +106,22 @@ a:active {
 /* =========================================== */
 /*               REGISTER                      */
 /* =========================================== */
-.register {
-    background: url(../img/register-pizza.jpg) center no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-    position: relative;
-}
-
 .register__form {
     max-width: 75%;
     animation: moveInLeft 1.4s ease forwards;
 }
 
-.register__form label {
-    font-size: 2rem;
-    text-transform: capitalize;
-    letter-spacing: .2rem;
-    width: 80%;
-    font-weight: 600;
-    color: var(--delta);
-}
-
-.register__form input {
-    height: 4rem;
-    width: 80%;
-    border: none;
-    outline: none;
-    font-size: 2rem;
-    margin: .5rem auto 1rem;
-    border-radius: 1rem;
-    padding: 0 1rem;
-}
-
-.register__login-link {
-    font-size: 1.4rem;
-    color: var(--delta);
-    text-align: center;
-    margin: 1rem 0 .5rem 0;
-}
-
-.register__login-link a {
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: var(--gamboge);
-}
-
 /* =========================================== */
 /*               Login                         */
 /* =========================================== */
-.login {
-    background: url(../img/register-pizza.jpg) center no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-    position: relative;
-}
-
 .login__form {
     max-width: 75%;
     animation: moveInBottom 1.4s ease forwards;
 }
 
-.login__form label {
-    font-size: 2rem;
-    text-transform: capitalize;
-    letter-spacing: .2rem;
-    width: 80%;
-    font-weight: 600;
-    color: var(--delta);
-}
-
-.login__form input {
-    height: 4rem;
-    width: 80%;
-    border: none;
-    outline: none;
-    font-size: 2rem;
-    margin: .5rem auto 1rem;
-    border-radius: 1rem;
-    padding: 0 1rem;
-}
-
-.login__error-msg {
-    font-size: 1.4rem;
-    text-align: center;
-    color: var(--tomato);
-}
-
-.login__register-link {
-    font-size: 1.4rem;
-    color: var(--delta);
-    text-align: center;
-    margin: 1rem 0 .5rem 0;
-}
-
-.login__register-link a {
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: var(--gamboge);
-}
-
-
 /* =========================================== */
 /*             Profile                         */
 /* =========================================== */
-.profile {
-    background: url(../img/register-pizza.jpg) center no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-    position: relative;
-}
-
 .profile-container {
     position: absolute;
     top: 50%;
@@ -218,10 +129,6 @@ a:active {
     transform: translate(-50%, -50%);
     height: 80%;
     width: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
 }
 
 .profile__heading-container {
@@ -252,26 +159,6 @@ a:active {
     position: relative;
     height: 80%;
     animation: fadeIn 2s ease backwards;
-}
-
-.profile__form label {
-    font-size: 2rem;
-    text-transform: capitalize;
-    letter-spacing: .2rem;
-    width: 80%;
-    font-weight: 600;
-    color: var(--delta);
-}
-
-.profile__form input {
-    height: 4rem;
-    width: 80%;
-    border: none;
-    outline: none;
-    font-size: 2rem;
-    margin: .5rem auto 1rem;
-    border-radius: 1rem;
-    padding: 0 1rem;
 }
 
 /* =========================================== */
@@ -335,15 +222,6 @@ a:active {
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
-}
-
-.contacts__form label {
-    font-size: 2rem;
-    text-transform: capitalize;
-    letter-spacing: .2rem;
-    width: 80%;
-    font-weight: 600;
-    color: var(--delta);
 }
 
 .contacts__form input,
@@ -411,7 +289,6 @@ a:active {
     color: var(--delta);
 }
 
-
 .contacts__item img {
     padding: 1.2rem;
     width: 6rem;
@@ -427,16 +304,10 @@ a:active {
 /*               ABOUT                         */
 /* =========================================== */
 .about {
-    background: url(../img/register-pizza.jpg) center no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 
 .about__container {
     width: 90%;
@@ -484,16 +355,10 @@ a:active {
 /*               MENU                          */
 /* =========================================== */
 .menu {
-    background: url(../img/register-pizza.jpg) center no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 
 .menu__container {
     width: 90%;
@@ -623,16 +488,6 @@ a:active {
 /* =========================================== */
 /*         Password Reset                      */
 /* =========================================== */
-.password-reset,
-.password-sent,
-.password-reset-done {
-    background: url(../img/register-pizza.jpg) center no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-    position: relative;
-}
-
 .password-reset__container {
     position: absolute;
     top: 50%;
@@ -666,26 +521,6 @@ a:active {
     animation: moveInBottom 1.4s ease forwards;
 }
 
-.password-reset__form label {
-    font-size: 2rem;
-    text-transform: capitalize;
-    letter-spacing: .2rem;
-    width: 80%;
-    font-weight: 600;
-    color: var(--delta);
-}
-
-.password-reset__form input {
-    height: 4rem;
-    width: 80%;
-    border: none;
-    outline: none;
-    font-size: 2rem;
-    margin: .5rem auto 1rem;
-    border-radius: 1rem;
-    padding: 0 1rem;
-}
-
 .password-reset__error-msg {
     font-size: 1.4rem;
     text-align: center;
@@ -695,14 +530,6 @@ a:active {
 /* =========================================== */
 /*         Password Reset Confirm              */
 /* =========================================== */
-.reset-password-confirm {
-    background: url(../img/register-pizza.jpg) center no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-    position: relative;
-}
-
 .reset-password-confirm__container {
     position: absolute;
     top: 50%;
@@ -736,26 +563,6 @@ a:active {
     animation: moveInBottom 1.4s ease forwards;
 }
 
-.reset-password-confirm__form label {
-    font-size: 2rem;
-    text-transform: capitalize;
-    letter-spacing: .2rem;
-    width: 80%;
-    font-weight: 600;
-    color: var(--delta);
-}
-
-.reset-password-confirm__form input {
-    height: 4rem;
-    width: 80%;
-    border: none;
-    outline: none;
-    font-size: 2rem;
-    margin: .5rem auto 1rem;
-    border-radius: 1rem;
-    padding: 0 1rem;
-}
-
 .reset-password-confirm__error-msg {
     font-size: 1.4rem;
     text-align: center;
@@ -777,14 +584,6 @@ a:active {
 /* =========================================== */
 /*           Change Password                   */
 /* =========================================== */
-.password-change {
-    background: url(../img/register-pizza.jpg) center no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-    position: relative;
-}
-
 .password-change__container {
     position: absolute;
     top: 50%;
@@ -819,23 +618,7 @@ a:active {
 }
 
 .password-change__form label {
-    font-size: 2rem;
-    text-transform: capitalize;
-    letter-spacing: .2rem;
-    width: 80%;
-    font-weight: 600;
-    color: var(--delta);
-}
 
-.password-change__form input {
-    height: 4rem;
-    width: 80%;
-    border: none;
-    outline: none;
-    font-size: 2rem;
-    margin: .5rem auto 1rem;
-    border-radius: 1rem;
-    padding: 0 1rem;
 }
 
 .password-change__error-msg {
@@ -860,11 +643,6 @@ a:active {
 /*               CART                          */
 /* =========================================== */
 .cart-summary {
-    background: url(../img/register-pizza.jpg) center no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -884,22 +662,9 @@ a:active {
     overflow-y: auto;
 }
 
-/*.cart-summary__heading {*/
-/*    font-size: 5.4rem;*/
-/*    text-align: center;*/
-/*    letter-spacing: .2rem;*/
-/*    text-transform: capitalize;*/
-/*    color: var(--delta);*/
-/*}*/
-
 .cart-heading {
     color: var(--delta);
 }
-
-/*.cart-summary__heading span {*/
-/*    font-size: 5.6rem;*/
-/*    color: var(--pepperoni);*/
-/*}*/
 
 .cart-summary__items {
     display: flex;
@@ -1039,14 +804,6 @@ a:active {
 /* =========================================== */
 /*               Order                         */
 /* =========================================== */
-.order {
-    background: url(../img/register-pizza.jpg) center no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-    position: relative;
-}
-
 .order__container {
     position: absolute;
     top: 50%;
@@ -1085,51 +842,15 @@ a:active {
     animation: moveInBottom 1.4s ease forwards;
 }
 
-.order__form label {
-    font-size: 2rem;
-    text-transform: capitalize;
-    letter-spacing: .2rem;
-    width: 80%;
-    font-weight: 600;
-    color: var(--delta);
-}
-
-.order__form input {
-    height: 4rem;
-    width: 80%;
-    border: none;
-    outline: none;
-    font-size: 2rem;
-    margin: .5rem auto 1rem;
-    border-radius: 1rem;
-    padding: 0 1rem;
-}
-
 .order__error-msg {
     font-size: 1.4rem;
     text-align: center;
     color: var(--tomato);
 }
 
-.order__register-link {
-    font-size: 1.4rem;
-    color: var(--delta);
-    text-align: center;
-    margin: 1rem 0 .5rem 0;
-}
-
-
 /* =========================================== */
 /*            Successful Order                 */
 /* =========================================== */
-.order_success {
-    background: url(../img/register-pizza.jpg) center no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-    position: relative;
-}
-
 .order_success__container {
     position: absolute;
     top: 50%;

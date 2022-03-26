@@ -3,7 +3,7 @@
 {% block title %}Register{% endblock %}
 {% block content %}
 
-    <section class="register">
+    <section class="section">
         <div class="section-container">
             <div class="section-container__heading-container">
                 <h3 class="section-container__heading">
@@ -15,7 +15,7 @@
                 {% csrf_token %}
                 {{ form }}
                 <button class="btn--fill-left">Register</button>
-                <p class="register__login-link">Already have an account?
+                <p class="form-footer">Already have an account?
                     <a class="btn--redirect" href="{% url 'login' %}">Log in</a>
                 </p>
             </form>

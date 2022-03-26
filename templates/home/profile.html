@@ -5,8 +5,8 @@
 {% endblock %}
 
 {% block content %}
-    <section class="profile">
-        <div class="profile-container">
+    <section class="section">
+        <div class="profile-container flexed">
             <form method="POST" action="{% url 'profile' user.id %}" class="generic-form profile__form"
                   enctype="multipart/form-data">
                 <div class="profile__heading-container">
