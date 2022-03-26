@@ -3,12 +3,12 @@
 {% block content %}
     <section class="login">
         <div class="section-container">
-            <div class="login__heading-container">
-                <h3 class="login__heading">
+            <div class="section-container__heading-container">
+                <h3 class="section-container__heading">
                     <span>W</span>elcome <span>B</span>ack!
                 </h3>
 
-                <p class="login__par">Sign in with your username and password</p>
+                <p class="section-container__par">Sign in with your username and password</p>
             </div>
 
             <form method="POST" action="{% url 'login' %}?next={{ next }}" class="generic-form login__form">
