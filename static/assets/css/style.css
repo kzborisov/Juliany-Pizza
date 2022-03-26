@@ -1291,7 +1291,9 @@ a:active {
     }
 
     .login__heading,
-    .register__heading {
+    .register__heading,
+    .password-reset__heading,
+    .reset-password-confirm__heading {
         color: var(--delta);
         font-size: 3.8rem;
     }
