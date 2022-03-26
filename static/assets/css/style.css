@@ -1241,7 +1241,7 @@ a:active {
         font-size: 3.8rem;
     }
 
-    .login__par {
+    .section-container__par {
         color: var(--delta);
         width: 90%;
         margin: 0 auto;
