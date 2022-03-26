@@ -1264,6 +1264,10 @@ a:active {
     .cart-summary__item {
         min-width: 100%;
     }
+
+    .generic-form {
+        min-width: 100%;
+    }
 }
 
 /* 1450px and smaller) */
