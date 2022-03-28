@@ -51,16 +51,18 @@ class CustomAuthForm(AuthenticationForm):
 
 
 class UserPasswordResetForm(PasswordResetForm):
+    EMAIL_ERROR_MESSAGE = 'Invalid Email! Inactive or Nonexistent User'
+
     def clean_email(self):
         email = self.cleaned_data['email']
         if not UserModel.objects.filter(email__iexact=email, is_active=True).exists():
-            raise ValidationError("Invalid Email! Inactive or Nonexistent User")
+            raise ValidationError(self.EMAIL_ERROR_MESSAGE)
         return email
 
 
 class UserSetPasswordForm(SetPasswordForm):
-    def __init__(self, user, *args, **kwargs):
-        super().__init__(user, *args, **kwargs)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.fields['new_password1'].help_text = None
         self.fields['new_password2'].help_text = None
         self.fields['new_password2'].label = "Confirm New password"
@@ -73,8 +75,8 @@ class UserPasswordChangeForm(PasswordChangeForm):
         'password_incorrect': 'Invalid password! Please try again.'
     }
 
-    def __init__(self, user, *args, **kwargs):
-        super().__init__(user, *args, **kwargs)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.fields['old_password'].help_text = None
         self.fields['new_password1'].help_text = None
         self.fields['new_password2'].help_text = None

@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
-from django.core.mail import send_mail
+from django.core import mail
 from django.core.validators import MinLengthValidator
 
 from juliany_pizza import settings
@@ -79,7 +79,7 @@ class ContactForm(forms.Form):
         sender = self.cleaned_data['name']
         message = self.cleaned_data['message']
         subject = self.cleaned_data['subject']
-        send_mail(
+        mail.send_mail(
             f'[Juliany Pizza] FROM:{sender} - {subject}',
             message,
             settings.EMAIL_HOST_USER,
