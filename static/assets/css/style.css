@@ -133,10 +133,10 @@ a:active {
 
 .profile__heading-container {
     width: 100%;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 50%;*/
+    /*transform: translateX(-50%);*/
     padding: 1rem;
 }
 
@@ -155,10 +155,14 @@ a:active {
 
 .profile__form {
     max-width: 90%;
-    flex-direction: row;
+    overflow: auto;
+    flex-direction: column;
     position: relative;
-    height: 80%;
     animation: fadeIn 2s ease backwards;
+}
+
+.profile__forms_container {
+    flex-direction: row;
 }
 
 /* =========================================== */
@@ -1006,6 +1010,10 @@ a:active {
 
     .generic-form {
         min-width: 100%;
+    }
+
+    .profile__forms_container {
+        flex-direction: column;
     }
 }
 

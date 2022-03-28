@@ -15,26 +15,28 @@
                     </h3>
                 </div>
                 {% csrf_token %}
-                <div class="flexed profile__profile-form">
-                    {{ profile_form }}
-                    {% if profile_form.errors %}
-                        {{ profile_form.error }}
-                    {% endif %}
-                </div>
-                <div class="flexed profile__user-form">
-                    {{ user_form }}
-                    {% if user_form.errors %}
-                        {{ user_form.error }}
-                    {% endif %}
-                    <button class="btn--fill-left">Save Info</button>
-                    <a href="{% url 'change password' %}" class="btn--fill-left">Change Password</a>
-                    {% if user.is_staff %}
-                        <a href="{% url 'admin:index' %}"
-                           class="btn--fill-left"
-                           target="_blank">
-                            Administration
-                        </a>
-                    {% endif %}
+                <div class="profile__forms_container flexed">
+                    <div class="flexed profile__profile-form">
+                        {{ profile_form }}
+                        {% if profile_form.errors %}
+                            {{ profile_form.error }}
+                        {% endif %}
+                    </div>
+                    <div class="flexed profile__user-form">
+                        {{ user_form }}
+                        {% if user_form.errors %}
+                            {{ user_form.error }}
+                        {% endif %}
+                        <button class="btn--fill-left">Save Info</button>
+                        <a href="{% url 'change password' %}" class="btn--fill-left">Change Password</a>
+                        {% if user.is_staff %}
+                            <a href="{% url 'admin:index' %}"
+                               class="btn--fill-left"
+                               target="_blank">
+                                Administration
+                            </a>
+                        {% endif %}
+                    </div>
                 </div>
             </form>
         </div>
