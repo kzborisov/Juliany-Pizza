@@ -31,6 +31,7 @@ class Order(models.Model):
         max_digits=5,
         decimal_places=2,
     )
+    items = models.JSONField()
     finished = models.BooleanField(
         default=False,
     )
@@ -40,25 +41,3 @@ class Order(models.Model):
 
     def __str__(self):
         return str(self.created)
-
-#
-# class OrderItem(models.Model):
-#     order = models.ForeignKey(
-#         Order,
-#         on_delete=models.CASCADE,
-#     )
-#     product = models.ForeignKey(
-#         Stock,
-#         on_delete=models.CASCADE,
-#         related_name='order_items',
-#     )
-#     price = models.DecimalField(
-#         max_digits=5,
-#         decimal_places=2,
-#     )
-#     quantity = models.PositiveIntegerField(
-#         default=1,
-#     )
-#
-#     def __str__(self):
-#         return str(self.id)

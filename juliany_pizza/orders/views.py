@@ -1,8 +1,10 @@
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, TemplateView
+from django.views.generic import CreateView, TemplateView, ListView, DetailView
 
 from juliany_pizza.cart.cart import Cart
+from juliany_pizza.menu.models import Stock
 from juliany_pizza.orders.forms import OrderForm
+from juliany_pizza.orders.models import Order
 
 
 class PlaceOrder(CreateView):
@@ -29,6 +31,7 @@ class PlaceOrder(CreateView):
         if self.request.user.id:
             form.instance.user = self.request.user
         form.instance.total_price = cart.total_price
+        form.instance.items = cart.cart
         form.save()
         cart.clear()
         return super().form_valid(form)
@@ -36,3 +39,23 @@ class PlaceOrder(CreateView):
 
 class SuccessfulOrder(TemplateView):
     template_name = 'orders/successful-order.html'
+
+
+class OrdersView(ListView):
+    model = Order
+    context_object_name = 'orders'
+    template_name = 'orders/orders.html'
+
+
+class OrderDetailsView(DetailView):
+    model = Order
+    template_name = 'orders/order-details.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['items'] = []
+        for item, values in context['order'].items.items():
+            context['items'].append(
+                {Stock.objects.get(id=item): values['qty']}
+            )
+        return context

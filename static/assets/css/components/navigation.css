@@ -30,11 +30,16 @@ nav .nav__logo {
 }
 
 nav .nav-item a {
-    font-size: 2.4rem;
+    font-size: 1.8rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: .08rem;
     margin-right: 3rem;
+}
+
+nav .nav-item a svg {
+    width: 3rem;
+    height: 3rem;
 }
 
 .navbar-toggler {

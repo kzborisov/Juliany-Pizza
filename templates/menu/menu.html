@@ -9,19 +9,18 @@
         <div class="menu__container">
             <div class="menu__heading-container">
                 <h3 class="menu__heading">
-                    {#                    {{ size }}#}
                     <span>O</span>ur <span>M</span>enu!
                 </h3>
             </div>
-            <div class="menu__items">
+            <div class="section-table-container">
                 {% for category in categories %}
                     <h4 class="menu__category_name">{{ category.name }}</h4>
-                    <table class="menu__table">
+                    <table class="section-table menu__table">
                         {% for item in stock %}
                             {% if item.product.category == category %}
                                 <tr>
-                                    <td class="menu__item">
-                                        <p class="menu__item-name">{{ item.product.name }}
+                                    <td class="section__table-item">
+                                        <p class="section__item_name">{{ item.product.name }}
                                             {% if not item.size == "---" %}
                                                 {{ item.size }}
                                             {% else %}
@@ -36,7 +35,7 @@
                                                 id="update-button"
                                                 data-index="{{ item.id }}"
                                                 value="{{ item.id }}"
-                                                class="btn--fill-left btn__add-to-cart">
+                                                class="btn btn-light btn__add-to-cart">
                                             +
                                         </button>
                                     </td>

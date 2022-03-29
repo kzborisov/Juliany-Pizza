@@ -1,0 +1,40 @@
+{% extends "base/base.html" %}
+
+{% block title %}
+    Orders
+{% endblock %}
+
+{% block content %}
+    <section class="section orders">
+        <div class="section-container orders-container">
+            <div class="section-container__heading-container">
+                <h3 class="section-container__heading orders__heading">
+                    <span>A</span>ll <span>O</span>rders!
+                </h3>
+            </div>
+            <div class="section-table-container">
+                <table class="section-table">
+                    {% for order in orders %}
+                        {% if not order.finished %}
+                            <tr>
+                                <td class="section__table-item">
+                                    <p class="section__item_name">{{ order.created }}</p>
+                                </td>
+                                <td class="section__table-item">
+                                    <p class="section__item_name">{{ order.total_price|floatformat:2 }}lv.</p>
+                                </td>
+                                <td class="section__table-item btn-box">
+                                    <a class="btn btn-light details-btn"
+                                       href="{% url 'order' order.id %}">Details</a>
+                                    <input type="checkbox" id="finished" name="finished">
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% empty %}
+                        <h4 class="section-secondary-heading">No Orders Waiting</h4>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </section>
+{% endblock %}

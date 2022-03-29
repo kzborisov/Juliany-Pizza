@@ -1,0 +1,28 @@
+{% extends "base/base.html" %}
+
+{% block title %}
+    Order Details
+{% endblock %}esdas
+
+{% block content %}
+    <section class="section menu">
+        <div class="section-container">
+            <h4>Created on: {{ object.created }}</h4>
+            <h4>Finished: {{ object.finished }}</h4>
+            <h4>TO: {{ object.full_name }} - {{ object.address }} - {{ object.phone }}</h4>
+            <h4>Price: {{ object.total_price }}lv.</h4>
+            <h4>Items: {{ object.items }}lv.</h4>
+            <ul>
+                {% for item in items %}
+                    {% for product, qty in item.items %}
+                        {% if not product.size == "---" %}
+                            <li>{{ product.product }} {{ product.size }} - {{ qty }}</li>
+                        {% else %}
+                            <li>{{ product.product }} - {{ qty }}</li>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+{% endblock %}

@@ -67,6 +67,46 @@ a:active {
     width: 40%;
 }
 
+.section-table-container {
+    width: 90%;
+    margin: 2rem auto;
+}
+
+.section-table {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-table tr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem;
+    position: relative;
+    padding: .5rem;
+}
+
+.section-table tr:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: .2rem;
+    background: var(--pepperoni);
+}
+
+.section-table .section__table-item {
+    text-align: left;
+}
+
+.section-table .section__item_name {
+    font-size: 2rem;
+    color: var(--delta);
+    letter-spacing: .1rem;
+}
+
 .section-container__heading-container {
     margin-bottom: 5rem;
     animation: fadeIn 2s ease forwards;
@@ -76,6 +116,14 @@ a:active {
     font-size: 5.4rem;
     text-align: center;
     letter-spacing: .2rem;
+}
+
+.section-secondary-heading {
+    font-size: 3.2rem;
+    color: var(--delta);
+    text-align: center;
+    letter-spacing: .3rem;
+    text-transform: capitalize;
 }
 
 .section-container__heading span {
@@ -101,6 +149,43 @@ a:active {
     font-size: 1.6rem;
     position: absolute;
     padding-left: 1rem;
+}
+
+/* =========================================== */
+/*               ORDERS                       */
+/* =========================================== */
+.orders-container {
+    border-radius: .5rem;
+    background: rgba(0, 0, 0, .8);
+    box-shadow: 1rem 1.5rem 2rem rgba(0, 0, 0, .6);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+
+.orders__heading {
+    color: var(--delta);
+}
+
+.btn-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.details-btn {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    margin-right: 1rem;
+    border: none;
+    outline: none;
+    border-radius: 10rem;
+}
+
+#finished {
+    width: 2rem;
+    height: 2rem;
 }
 
 /* =========================================== */
@@ -394,46 +479,6 @@ a:active {
 .menu__heading span {
     font-size: 5.6rem;
     color: var(--pepperoni);
-}
-
-.menu__items {
-    width: 90%;
-    margin: 2rem auto;
-}
-
-.menu__table {
-    width: 80%;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.menu__table tr {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 1rem;
-    position: relative;
-    padding: .5rem;
-}
-
-.menu__table tr:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: .2rem;
-    background: var(--pepperoni);
-}
-
-.menu__table .menu__item {
-    text-align: left;
-}
-
-.menu__table .menu__item-name {
-    font-size: 2rem;
-    color: var(--delta);
-    letter-spacing: .1rem;
 }
 
 .menu__table .menu__ingredients {
@@ -753,17 +798,6 @@ a:active {
 .update-button {
     text-transform: capitalize;
     margin: initial;
-}
-
-.delete-button {
-    background: var(--tomato);
-    color: #fff;
-    transition: all .3s ease-in;
-}
-
-.delete-button:active,
-.update-button:active {
-    transform: scale(1.3);
 }
 
 .cart-summary__final-price {
