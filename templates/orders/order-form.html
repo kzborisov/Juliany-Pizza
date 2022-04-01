@@ -20,7 +20,7 @@
             <form method="POST" action="{% url 'place order' %}" class="generic-form order__form">
                 {% csrf_token %}
                 {{ form }}
-                <button class="btn--fill-left">Order!</button>
+                <button id="order-button" class="btn--fill-left btn-order">Order!</button>
             </form>
         </div>
     </section>

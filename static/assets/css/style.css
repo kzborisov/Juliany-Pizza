@@ -65,6 +65,8 @@ a:active {
     left: 5%;
     transform: translateY(-50%);
     width: 40%;
+    max-height: 75vh;
+    overflow: auto;
 }
 
 .section-table-container {
@@ -184,10 +186,22 @@ a:active {
     border-radius: 10rem;
 }
 
-#finished {
-    width: 2rem;
-    height: 2rem;
+.order-items li {
+    list-style: none;
 }
+
+.customer-data {
+    padding-left: 1rem;
+}
+
+.order-data {
+    font-size: 2rem;
+    letter-spacing: .2rem;
+    font-weight: 600;
+    color: var(--delta);
+    margin-left: 3rem;
+}
+
 
 /* =========================================== */
 /*               REGISTER                      */
@@ -1040,6 +1054,10 @@ a:active {
     }
 
     .cart-summary__item {
+        min-width: 100%;
+    }
+
+    .section-table {
         min-width: 100%;
     }
 

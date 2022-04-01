@@ -7,22 +7,38 @@
 {% block content %}
     <section class="section menu">
         <div class="section-container">
-            <h4>Created on: {{ object.created }}</h4>
-            <h4>Finished: {{ object.finished }}</h4>
-            <h4>TO: {{ object.full_name }} - {{ object.address }} - {{ object.phone }}</h4>
-            <h4>Price: {{ object.total_price }}lv.</h4>
-            <h4>Items: {{ object.items }}lv.</h4>
-            <ul>
-                {% for item in items %}
-                    {% for product, qty in item.items %}
-                        {% if not product.size == "---" %}
-                            <li>{{ product.product }} {{ product.size }} - {{ qty }}</li>
-                        {% else %}
-                            <li>{{ product.product }} - {{ qty }}</li>
-                        {% endif %}
+
+            <div class="section-container__heading-container">
+                <h3 class="section-container__heading">
+                    <span>O</span>rder <span>D</span>etails!
+                </h3>
+
+                <p class="section-container__par">Order #{{ order.id }}</p>
+            </div>
+            <div class="generic-form">
+                <h4 class="order-data">Created on: {{ object.created }}</h4>
+                <h4 class="order-data">Customer Data:</h4>
+                <div class="customer-data">
+                    <h4 class="order-data">{{ object.full_name }}</h4>
+                    <h4 class="order-data">{{ object.address }}</h4>
+                    <h4 class="order-data">{{ object.phone }}</h4>
+                </div>
+                <h4 class="order-data">Price: {{ object.total_price }}lv.</h4>
+                <h4 class="order-data">Products: </h4>
+                <ul class="order-items">
+                    {% for item in items %}
+                        {% for product, qty in item.items %}
+                            {% if not product.size == "---" %}
+                                <li class="order-data">{{ product.product }} Size: {{ product.size }}
+                                    Quantity: {{ qty }}</li>
+                            {% else %}
+                                <li class="order-data">{{ product.product }} Quantity: {{ qty }}</li>
+                            {% endif %}
+                        {% endfor %}
                     {% endfor %}
-                {% endfor %}
-            </ul>
+                </ul>
+                <a href="{% url 'finish order' order.id %}" class="btn--fill-left">Done!</a>
+            </div>
         </div>
     </section>
 {% endblock %}

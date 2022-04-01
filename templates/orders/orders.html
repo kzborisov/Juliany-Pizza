@@ -26,11 +26,18 @@
                                 <td class="section__table-item btn-box">
                                     <a class="btn btn-light details-btn"
                                        href="{% url 'order' order.id %}">Details</a>
-                                    <input type="checkbox" id="finished" name="finished">
                                 </td>
                             </tr>
-                        {% else %}
-                            <h4 class="section-secondary-heading">No Pending Orders</h4>
+                            {% else %}
+                            <tr>
+                                <td class="section__table-item">
+                                    <p class="section__item_name">{{ order.created }}</p>
+                                </td>
+                                <td class="section__table-item">
+                                    <p class="section__item_name">Order Done!</p>
+                                </td>
+
+                            </tr>
                         {% endif %}
                     {% empty %}
                         <h4 class="section-secondary-heading">No Pending Orders</h4>

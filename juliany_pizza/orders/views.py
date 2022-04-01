@@ -1,4 +1,6 @@
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
+from django.views import View
 from django.views.generic import CreateView, TemplateView, ListView, DetailView
 
 from juliany_pizza.cart.cart import Cart
@@ -59,3 +61,11 @@ class OrderDetailsView(DetailView):
                 {Stock.objects.get(id=item): values['qty']}
             )
         return context
+
+
+class FinishOrder(View):
+    def get(self, request, pk):
+        product = Order.objects.get(pk=pk)
+        product.finished = True
+        product.save()
+        return redirect('orders')
