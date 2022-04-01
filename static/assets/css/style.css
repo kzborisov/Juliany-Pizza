@@ -144,7 +144,8 @@ a:active {
 }
 
 #cart-items-outer,
-#cart-items {
+#cart-items,
+#orders-count {
     color: var(--tomato) !important;
     font-size: 1.6rem;
     position: absolute;

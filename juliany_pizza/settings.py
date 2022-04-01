@@ -60,6 +60,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'juliany_pizza.cart.context_processors.cart',
+                'juliany_pizza.orders.context_processors.orders_count',
             ],
         },
     },

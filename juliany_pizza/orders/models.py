@@ -37,7 +37,7 @@ class Order(models.Model):
     )
 
     class Meta:
-        ordering = ('-created',)
+        ordering = ('created',)
 
     def __str__(self):
         return str(self.created)

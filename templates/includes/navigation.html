@@ -46,7 +46,13 @@
                 {% endif %}
                 {% if user.is_staff %}
                     <li class="nav-item">
-                        <a href="{% url 'orders' %}" class="nav-link btn--underline">Orders</a>
+                        <a id="orders" href="{% url 'orders' %}" class="nav-link btn--underline">Orders
+                            <span id="orders-count">
+                                {% if orders_count > 0 %}
+                                    {{ orders_count }}
+                                {% endif %}
+                            </span>
+                        </a>
                     </li>
                 {% endif %}
                 <li class="nav-item">
