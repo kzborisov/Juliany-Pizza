@@ -32,7 +32,9 @@
           content="Juliany pizza - a hobby turned into a profession and a dream turned into reality.
           At Juliany Pizza we offer you a product made by us - thin, crispy dough, fresh tomatoes and spices, high quality yellow cheese.
           Our clients' favourite pizzas">
-
+    {% if user.is_staff %}
+        <meta http-equiv="refresh" content="60">
+    {% endif %}
     <!-- Favicon -->
     {#    <link rel="apple-touch-icon" sizes="120x120" href="/static/assets/img/favicon/apple-touch-icon.png">#}
     {#    <link rel="icon" type="image/png" sizes="32x32" href="/static/assets/img/favicon/favicon-32x32.png">#}
