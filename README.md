@@ -19,11 +19,11 @@ The website is divided into the following sections:
 2. Private Part:
    - Profile Page
    - Orders Page (Staff only)
-3. Admin Panel:
-<br>
-`NOTE: Based on which group the user is in different options are shown in the admin panel.`
-    - Admin User - Full CRUD Operations
-    - Staff User - Limited CRUD Operations
+3. Admin Panel: <br>
+   ```NOTE: Based on which group the user is in different options are shown in the admin panel.```
+   
+   - Admin User - Full CRUD Operations
+   - Staff User - Limited CRUD Operations
 
 ## Features
 - Everyone can see the menu
