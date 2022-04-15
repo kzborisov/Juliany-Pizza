@@ -19,9 +19,9 @@
                 <h4 class="order-data">Created on: {{ object.created }}</h4>
                 <h4 class="order-data">Customer Data:</h4>
                 <div class="customer-data">
-                    <h4 class="order-data">{{ object.full_name }}</h4>
-                    <h4 class="order-data">{{ object.address }}</h4>
-                    <h4 class="order-data">{{ object.phone }}</h4>
+                    <h4 class="order-data">- {{ object.full_name }}</h4>
+                    <h4 class="order-data">- {{ object.address }}</h4>
+                    <h4 class="order-data">- {{ object.phone }}</h4>
                 </div>
                 <h4 class="order-data">Price: {{ object.total_price }}lv.</h4>
                 <h4 class="order-data">Products: </h4>
@@ -29,10 +29,10 @@
                     {% for item in items %}
                         {% for product, qty in item.items %}
                             {% if not product.size == "---" %}
-                                <li class="order-data">{{ product.product }} Size: {{ product.size }}
+                                <li class="order-data">- {{ product.product }} Size: {{ product.size }}
                                     Quantity: {{ qty }}</li>
                             {% else %}
-                                <li class="order-data">{{ product.product }} Quantity: {{ qty }}</li>
+                                <li class="order-data">- {{ product.product }} Quantity: {{ qty }}</li>
                             {% endif %}
                         {% endfor %}
                     {% endfor %}
